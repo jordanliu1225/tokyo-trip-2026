@@ -3,257 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東京夏物語 7/30–8/4 行前計畫書</title>
+<link rel="stylesheet" href="style.css">
+<script>(function(){var t;try{t=localStorage.getItem("tokyo-theme")}catch(e){}document.documentElement.dataset.theme=t==="light"?"light":"dark";})();</script>
 </head>
 <body>
-<title>東京夏物語 7/30–8/4 行前計畫書</title>
-<style>
-:root{
-  --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
-  --ink:#e8e4d8; --muted:#9aa0ae; --line:#33405a;
-  --shu:#e05a45; --ai:#7da2d9; --gold:#d9a441; --green:#7fb08f;
-  --shu-soft:#3a2530; --ai-soft:#22304a; --gold-soft:#3a3222;
-  --shadow:0 2px 12px rgba(0,0,0,.35);
-}
-:root[data-theme="dark"]{
-  --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
-  --ink:#e8e4d8; --muted:#9aa0ae; --line:#33405a;
-  --shu:#e05a45; --ai:#7da2d9; --gold:#d9a441; --green:#7fb08f;
-  --shu-soft:#3a2530; --ai-soft:#22304a; --gold-soft:#3a3222;
-  --shadow:0 2px 12px rgba(0,0,0,.35);
-}
-:root[data-theme="light"]{
-  --bg:#f5f0e6; --surface:#fffdf7; --surface2:#efe8d8;
-  --ink:#26313d; --muted:#68705f; --line:#d9cfba;
-  --shu:#b73a2c; --ai:#2b4a7a; --gold:#b98a2f; --green:#4a7a5a;
-  --shu-soft:#f3ddd6; --ai-soft:#dde6f2; --gold-soft:#f0e5cc;
-  --shadow:0 2px 10px rgba(38,49,61,.08);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:"Noto Sans TC","PingFang TC","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;
-  line-height:1.75; font-size:16px;
-}
-.serif{font-family:"Noto Serif TC","Yu Mincho","Hiragino Mincho ProN","PMingLiU",serif}
-a{color:var(--ai); text-decoration-thickness:1px; text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--shu); outline-offset:2px; border-radius:4px}
-.wrap{max-width:920px; margin:0 auto; padding:0 20px}
-
-/* ---------- hero ---------- */
-header.hero{
-  border-bottom:3px double var(--line);
-  padding:56px 0 36px; position:relative; overflow:hidden;
-}
-.hero-inner{display:flex; gap:28px; align-items:flex-start}
-.tate{
-  writing-mode:vertical-rl; font-family:"Noto Serif TC","Yu Mincho",serif;
-  font-size:15px; letter-spacing:.35em; color:var(--shu);
-  border-right:1px solid var(--line); padding-right:14px; line-height:1;
-  flex:none; height:150px;
-}
-.hero h1{
-  font-family:"Noto Serif TC","Yu Mincho","Hiragino Mincho ProN",serif;
-  font-size:clamp(30px,5.5vw,46px); margin:0 0 10px; line-height:1.25; text-wrap:balance; font-weight:700;
-}
-.hero h1 em{font-style:normal; color:var(--shu)}
-.hero .sub{color:var(--muted); margin:0 0 20px; max-width:36em}
-.facts{display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0; list-style:none; font-size:14px}
-.facts li{
-  background:var(--surface); border:1px solid var(--line); border-radius:999px;
-  padding:5px 14px; box-shadow:var(--shadow);
-}
-.facts b{font-weight:700; color:var(--shu)}
-.hanabi{position:absolute; right:-30px; top:-40px; width:260px; opacity:.5; pointer-events:none}
-
-/* ---------- sticky nav ---------- */
-nav.daynav{
-  position:sticky; top:0; z-index:50; background:var(--bg);
-  border-bottom:1px solid var(--line); padding:10px 0;
-}
-.daynav .wrap{display:flex; gap:8px; overflow-x:auto; scrollbar-width:thin}
-.daynav a{
-  flex:none; text-decoration:none; color:var(--ink); font-size:13.5px;
-  border:1px solid var(--line); border-radius:999px; padding:5px 13px; background:var(--surface);
-  white-space:nowrap;
-}
-.daynav a.now{background:var(--shu); border-color:var(--shu); color:#fff8f0}
-.daynav a span{color:var(--muted); font-size:12px; margin-left:4px}
-.daynav a.now span{color:#ffd9cd}
-.thbtn{
-  flex:none; margin-left:auto; cursor:pointer; font:inherit; font-size:13.5px;
-  border:1px solid var(--line); border-radius:999px; padding:5px 13px;
-  background:var(--surface); color:var(--ink); white-space:nowrap;
-}
-
-/* ---------- ledger ---------- */
-.lcard{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow); margin-bottom:14px}
-.lcard h3{margin:0 0 10px; font-size:15.5px}
-.lform{display:flex; flex-wrap:wrap; gap:8px}
-.lform input,.lform select{
-  font:inherit; font-size:14.5px; color:var(--ink); background:var(--surface2);
-  border:1px solid var(--line); border-radius:8px; padding:8px 12px; min-width:0;
-}
-.lform input:focus,.lform select:focus{outline:2px solid var(--ai); outline-offset:1px}
-.lform .grow{flex:2 1 140px}
-.lform .amt{flex:1 1 100px}
-.btn{
-  font:inherit; font-size:14.5px; font-weight:700; cursor:pointer;
-  background:var(--shu); color:#fff8f0; border:none; border-radius:8px; padding:8px 18px;
-}
-.btn:disabled{opacity:.5; cursor:not-allowed}
-.pchips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-.pchip{
-  display:inline-flex; align-items:center; gap:8px; font-size:14px;
-  background:var(--ai-soft); color:var(--ink); border:1px solid var(--line);
-  border-radius:999px; padding:4px 8px 4px 14px;
-}
-.pchip .x{
-  cursor:pointer; border:none; background:transparent; color:var(--muted);
-  font-size:15px; line-height:1; padding:2px 6px; border-radius:50%;
-}
-.pchip .x:hover{color:var(--shu)}
-.fchips{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 12px}
-.fchip{
-  cursor:pointer; font:inherit; font-size:13.5px; border:1px solid var(--line);
-  border-radius:999px; padding:4px 14px; background:var(--surface); color:var(--ink);
-}
-.fchip.on{background:var(--shu); border-color:var(--shu); color:#fff8f0}
-.xbtn{
-  cursor:pointer; border:none; background:transparent; color:var(--muted);
-  font-size:16px; line-height:1; padding:2px 8px; border-radius:6px;
-}
-.xbtn:hover{color:var(--shu)}
-.sumtiles{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
-.sumtile{
-  background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--ai);
-  border-radius:10px; padding:10px 16px; box-shadow:var(--shadow); font-size:14px;
-}
-.sumtile b{display:block; font-size:17px; font-variant-numeric:tabular-nums}
-.sumtile.grand{border-left-color:var(--gold); background:var(--gold-soft)}
-.sumtile small{color:var(--muted)}
-.lempty{color:var(--muted); font-size:14px; padding:14px 4px}
-
-/* ---------- sections ---------- */
-section{padding:44px 0 8px}
-.kicker{
-  font-size:12.5px; letter-spacing:.28em; text-transform:uppercase;
-  color:var(--gold); font-weight:700; margin:0 0 6px;
-}
-h2{
-  font-family:"Noto Serif TC","Yu Mincho",serif; font-size:clamp(23px,3.4vw,30px);
-  margin:0 0 6px; line-height:1.3; text-wrap:balance;
-}
-h2 .jp{color:var(--muted); font-size:.62em; font-weight:400; margin-left:10px; letter-spacing:.1em}
-.daymeta{display:flex; flex-wrap:wrap; gap:8px 18px; color:var(--muted); font-size:14px; margin:4px 0 22px}
-.daymeta b{color:var(--ink)}
-.badge-max{display:inline-block; background:var(--ai-soft); color:var(--ai); border-radius:6px; padding:1px 9px; font-size:13px; font-weight:700}
-
-/* ---------- timeline ---------- */
-.tl{list-style:none; margin:0; padding:0; border-left:2px solid var(--line); margin-left:64px}
-.tl>li{position:relative; padding:0 0 22px 22px}
-.tl>li::before{
-  content:""; position:absolute; left:-7px; top:9px; width:12px; height:12px;
-  border-radius:50%; background:var(--surface); border:3px solid var(--shu);
-}
-.tl>li.transit::before{border-color:var(--line); width:8px; height:8px; left:-5px; top:10px}
-.tl .t{
-  position:absolute; left:-86px; top:4px; width:56px; text-align:right;
-  font-variant-numeric:tabular-nums; font-weight:700; font-size:14.5px; color:var(--shu);
-}
-.tl>li.transit .t{color:var(--muted); font-weight:400}
-.stop{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:13px 16px; box-shadow:var(--shadow)}
-.stop h3{margin:0 0 3px; font-size:16.5px; font-weight:700}
-.stop h3 a.pin{font-size:13px; font-weight:400; margin-left:8px; white-space:nowrap}
-.stop p{margin:0; font-size:14.5px; color:var(--muted)}
-.stop .must{color:var(--gold); font-weight:700; font-size:13px}
-.leg{
-  display:inline-flex; flex-wrap:wrap; align-items:center; gap:7px;
-  font-size:13.5px; color:var(--muted); background:var(--surface2);
-  border-radius:999px; padding:4px 14px;
-}
-.leg .min{font-weight:700; color:var(--ai); font-variant-numeric:tabular-nums}
-.leg .ln{
-  background:var(--ai); color:#fff; border-radius:4px; padding:0 7px;
-  font-size:12px; font-weight:700; letter-spacing:.03em;
-}
-.leg .ln.walk{background:var(--green)}
-.leg .ln.tx{background:var(--shu)}
-.opts{list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px}
-.opts li{font-size:13.5px; color:var(--muted); background:var(--surface2); border-radius:8px; padding:6px 12px; line-height:1.6}
-.opts li b{color:var(--ink)}
-.opts-label{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.12em; color:var(--gold); margin-top:8px}
-
-/* ---------- route strip ---------- */
-.route{
-  margin:22px 0 8px; background:var(--surface); border:1px solid var(--line);
-  border-radius:12px; padding:16px 18px 12px; box-shadow:var(--shadow); overflow-x:auto;
-}
-.route .rt-title{font-size:12.5px; letter-spacing:.2em; color:var(--muted); margin:0 0 10px; font-weight:700}
-.rline{display:flex; align-items:flex-start; min-width:560px}
-.rstop{flex:1; text-align:center; position:relative; font-size:12.5px; line-height:1.4; padding-top:16px; min-width:64px}
-.rstop::before{
-  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
-  width:11px; height:11px; border-radius:50%; background:var(--shu); z-index:1;
-}
-.rstop.home::before{background:var(--gold); box-shadow:0 0 0 3px var(--gold-soft)}
-.rstop::after{
-  content:""; position:absolute; top:5px; left:calc(50% + 7px); right:calc(-50% + 7px);
-  height:2px; background:var(--line);
-}
-.rstop:last-child::after{display:none}
-.rstop small{display:block; color:var(--muted); font-size:11px}
-.gmap-day{margin:12px 0 0; font-size:13.5px}
-
-/* ---------- map ---------- */
-.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow)}
-#leafmap{height:500px; width:100%; border-radius:10px; z-index:0; background:var(--surface2)}
-#leafmap .home-pin{font-size:26px; line-height:1; color:#b98a2f; text-shadow:0 1px 2px rgba(0,0,0,.5), 0 0 4px #fff}
-#leafmap .leaflet-popup-content{font-family:inherit; font-size:13.5px; line-height:1.5; margin:10px 14px}
-#leafmap .leaflet-popup-content b{display:block}
-#leafmap .leaflet-tile{filter:brightness(.72) contrast(1.05) saturate(.75)}
-:root[data-theme="light"] #leafmap .leaflet-tile{filter:none}
-.map-legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13.5px; color:var(--muted); margin-top:10px}
-.map-legend i{display:inline-block; width:18px; height:4px; border-radius:2px; vertical-align:middle; margin-right:6px}
-figcaption{font-size:13px; color:var(--muted); margin-top:10px}
-figure{margin:0}
-
-/* ---------- budget ---------- */
-.tablewrap{overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow)}
-table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:600px}
-th,td{padding:10px 16px; text-align:left; border-bottom:1px solid var(--line)}
-td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
-thead th{font-size:13px; letter-spacing:.08em; color:var(--muted); font-weight:700; background:var(--surface2)}
-tbody tr:last-child td{border-bottom:none}
-tr.total td{font-weight:700; background:var(--gold-soft); border-top:2px solid var(--gold)}
-td small{color:var(--muted)}
-.note{font-size:13.5px; color:var(--muted); margin-top:10px}
-
-/* ---------- tips ---------- */
-.tips{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:8px}
-.tip{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow)}
-.tip.hot{border-left-color:var(--shu)}
-.tip h3{margin:0 0 6px; font-size:15.5px}
-.tip p,.tip ul{margin:0; font-size:14px; color:var(--muted)}
-.tip ul{padding-left:18px}
-.tip li{margin:2px 0}
-
-footer{border-top:3px double var(--line); margin-top:56px; padding:26px 0 60px; font-size:13px; color:var(--muted)}
-footer p{margin:4px 0}
-
-@media (max-width:640px){
-  .tl{margin-left:52px}
-  .tl .t{left:-74px; width:48px; font-size:13px}
-  .tate{display:none}
-}
-@media print{
-  nav.daynav{display:none}
-  .stop,.route,.mapbox,.tip,.tablewrap{box-shadow:none}
-  body{font-size:13px}
-}
-</style>
-
 <header class="hero">
   <svg class="hanabi" viewBox="0 0 200 200" aria-hidden="true">
     <g stroke="var(--shu)" stroke-width="2" stroke-linecap="round" opacity=".85">
@@ -283,32 +37,13 @@ footer p{margin:4px 0}
   </div>
 </header>
 
-<nav class="daynav" aria-label="每日行程導覽">
-  <div class="wrap">
-    <a href="#d1">7/30<span>抵達</span></a>
-    <a href="#d2">7/31<span>淺草在地日</span></a>
-    <a href="#d3">8/1<span>上野・花火</span></a>
-    <a href="#d4">8/2<span>神宮・澀谷</span></a>
-    <a href="#d5">8/3<span>築地・teamLab</span></a>
-    <a href="#d6">8/4<span>採買・回程</span></a>
-    <a href="#map">地圖</a>
-    <a href="#budget">預算</a>
-    <a href="#ledger">記帳</a>
-    <a href="#tips">提醒</a>
-    <button type="button" id="themeBtn" class="thbtn" aria-label="切換深淺色主題">☀️ 淺色</button>
-  </div>
+<nav class="daynav" aria-label="頁面導覽">
+  <div class="wrap"><a href="index.html" class="pagelink now">🗓 行程</a><a href="map.html" class="pagelink">🗺 地圖</a><a href="budget.html" class="pagelink">💴 預算</a><a href="ledger.html" class="pagelink">🧾 記帳</a><a href="tips.html" class="pagelink">💡 提醒</a><button type="button" id="themeBtn" class="thbtn" aria-label="切換深淺色主題">☀️ 淺色</button></div>
+  <div class="wrap dayrow"><a href="#d1">7/30<span>抵達</span></a><a href="#d2">7/31<span>淺草在地日</span></a><a href="#d3">8/1<span>上野・花火</span></a><a href="#d4">8/2<span>神宮・澀谷</span></a><a href="#d5">8/3<span>築地・teamLab</span></a><a href="#d6">8/4<span>採買・回程</span></a></div>
 </nav>
-<script>
-(function(){
-  var t;
-  try{ t = localStorage.getItem('tokyo-theme'); }catch(e){}
-  document.documentElement.dataset.theme = (t === 'light') ? 'light' : 'dark';
-})();
-</script>
 
 <main class="wrap">
 
-<!-- ================= DAY 1 ================= -->
 <section id="d1">
   <p class="kicker">Day 1 ・ 7/30 星期四</p>
   <h2 class="serif">抵達東京・淺草的第一夜<span class="jp">とうちゃく</span></h2>
@@ -339,7 +74,6 @@ footer p{margin:4px 0}
   </div>
 </section>
 
-<!-- ================= DAY 2 ================= -->
 <section id="d2">
   <p class="kicker">Day 2 ・ 7/31 星期五</p>
   <h2 class="serif">淺草深度日・在地散策<span class="jp">あさくさ さんぽ</span></h2>
@@ -387,7 +121,6 @@ footer p{margin:4px 0}
   </div>
 </section>
 
-<!-- ================= DAY 3 ================= -->
 <section id="d3">
   <p class="kicker">Day 3 ・ 8/1 星期六 🎆</p>
   <h2 class="serif">上野・江戶川花火大會<span class="jp">はなびたいかい</span></h2>
@@ -424,7 +157,6 @@ footer p{margin:4px 0}
   </div>
 </section>
 
-<!-- ================= DAY 4 ================= -->
 <section id="d4">
   <p class="kicker">Day 4 ・ 8/2 星期日</p>
   <h2 class="serif">明治神宮・原宿・澀谷<span class="jp">はらじゅく・しぶや</span></h2>
@@ -478,7 +210,6 @@ footer p{margin:4px 0}
   </div>
 </section>
 
-<!-- ================= DAY 5 ================= -->
 <section id="d5">
   <p class="kicker">Day 5 ・ 8/3 星期一</p>
   <h2 class="serif">築地市場・teamLab・銀座<span class="jp">つきじ・チームラボ</span></h2>
@@ -531,7 +262,6 @@ footer p{margin:4px 0}
   </div>
 </section>
 
-<!-- ================= DAY 6 ================= -->
 <section id="d6">
   <p class="kicker">Day 6 ・ 8/4 星期二</p>
   <h2 class="serif">最後採買・歸途<span class="jp">きたく</span></h2>
@@ -567,150 +297,6 @@ footer p{margin:4px 0}
   </div>
 </section>
 
-<!-- ================= MAP ================= -->
-<section id="map">
-  <p class="kicker">Route Map</p>
-  <h2 class="serif">六日路線總覽圖<span class="jp">ちず</span></h2>
-  <p class="daymeta"><span>以千束 Airbnb（★）為中心，每色一天，點景點看說明、右上角圖層可切換各日。實際導航請點各日的 Google Maps 連結。</span></p>
-  <figure class="mapbox">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <div id="leafmap" role="img" aria-label="六日行程真實路線地圖"></div>
-    <div class="map-legend">
-      <span><i style="background:#b73a2c"></i>7/31 淺草在地日</span>
-      <span><i style="background:#b98a2f"></i>8/1 上野＋花火</span>
-      <span><i style="background:#2b4a7a"></i>8/2 神宮・澀谷</span>
-      <span><i style="background:#4a7a5a"></i>8/3 築地・teamLab・銀座</span>
-    </div>
-    <figcaption>底圖 © OpenStreetMap。彩線為當日順路連線（非實際軌道路徑），所有單段車程均 ≤ 60 分。</figcaption>
-  </figure>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-  (function(){
-    if(typeof L === 'undefined'){ return; }
-    var HOME = [35.7206, 139.7903]; // 千束 2-22-6
-    var P = {
-      sensoji:   {ll:[35.7148,139.7967], n:'淺草寺・仲見世', d:'7/31 08:00'},
-      kappabashi:{ll:[35.7141,139.7887], n:'合羽橋道具街', d:'7/31 11:15'},
-      kanko:     {ll:[35.7108,139.7963], n:'淺草文化觀光中心・新仲見世商店街', d:'7/31 15:30 展望台＋逛街'},
-      azumabashi:{ll:[35.7096,139.7997], n:'吾妻橋・隅田公園', d:'7/31 18:00 黃昏、18:45 壽喜燒'},
-      ueno:      {ll:[35.7188,139.7765], n:'上野公園・東京國立博物館', d:'8/1 09:15'},
-      ameyoko:   {ll:[35.7106,139.7746], n:'阿美橫町', d:'8/1 12:00 午餐＋掃貨'},
-      hanabi:    {ll:[35.7093,139.9060], n:'🎆 江戶川花火會場（篠崎）', d:'8/1 19:15–20:20'},
-      meiji:     {ll:[35.6764,139.6993], n:'明治神宮', d:'8/2 09:15'},
-      takeshita: {ll:[35.6716,139.7031], n:'竹下通・表參道', d:'8/2 11:00'},
-      shibuya:   {ll:[35.6590,139.7025], n:'澀谷・SHIBUYA SKY', d:'8/2 18:00・需預約'},
-      tsukiji:   {ll:[35.6654,139.7707], n:'築地場外市場・築地本願寺', d:'8/3 09:00 海鮮早午餐'},
-      teamlab:   {ll:[35.6491,139.7897], n:'teamLab Planets TOKYO', d:'8/3 15:00・需預約'},
-      ginza:     {ll:[35.6696,139.7639], n:'銀座', d:'8/3 18:10'}
-    };
-    var DAYS = [
-      {name:'7/31 淺草在地日', color:'#b73a2c', route:['sensoji','kappabashi','kanko','azumabashi']},
-      {name:'8/1 上野＋花火',   color:'#b98a2f', route:['ueno','ameyoko','HOME','hanabi']},
-      {name:'8/2 神宮・澀谷',   color:'#2b4a7a', route:['meiji','takeshita','shibuya']},
-      {name:'8/3 築地・teamLab・銀座', color:'#4a7a5a', route:['tsukiji','teamlab','ginza']}
-    ];
-    var map = L.map('leafmap', {scrollWheelZoom:false});
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:18, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    L.marker(HOME, {icon:L.divIcon({className:'', html:'<span class="home-pin">★</span>', iconSize:[26,26], iconAnchor:[13,15]}), zIndexOffset:1000})
-      .addTo(map).bindPopup('<b>千束 Airbnb（基地）</b>台東區千束 2-22-6<br>入谷駅 8 分・TX 淺草 10 分');
-    var overlays = {}, allPts = [HOME];
-    DAYS.forEach(function(day){
-      var pts = [HOME].concat(day.route.map(function(k){ return k==='HOME' ? HOME : P[k].ll; })).concat([HOME]);
-      var g = L.layerGroup();
-      L.polyline(pts, {color:day.color, weight:3.5, opacity:.85, dashArray:'7 7'}).addTo(g);
-      day.route.forEach(function(k){
-        if(k==='HOME') return;
-        var s = P[k];
-        allPts.push(s.ll);
-        L.circleMarker(s.ll, {radius:7, color:'#fff', weight:2, fillColor:day.color, fillOpacity:1})
-          .addTo(g).bindPopup('<b>'+s.n+'</b>'+s.d);
-      });
-      g.addTo(map);
-      overlays['<i style="display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;background:'+day.color+'"></i> '+day.name] = g;
-    });
-    L.control.layers(null, overlays, {collapsed:true, position:'topright'}).addTo(map);
-    map.fitBounds(L.latLngBounds(allPts), {padding:[36,36]});
-  })();
-  </script>
-</section>
-
-<!-- ================= BUDGET ================= -->
-<section id="budget">
-  <p class="kicker">Budget</p>
-  <h2 class="serif">預算規劃<span class="jp">よさん</span></h2>
-  <p class="daymeta"><span>機票與 Airbnb 已訂，以下為<b>當地花費</b>。匯率以 ¥1 ≈ NT$0.21 估算。</span></p>
-  <div class="tablewrap"><table>
-    <thead><tr><th>項目</th><th>內容</th><th class="num">每人（¥）</th><th class="num">每人（NT$）</th><th class="num">三人合計（¥）</th></tr></thead>
-    <tbody>
-      <tr><td>機場交通</td><td>Access特急 淺草⇄成田 來回</td><td class="num">2,740</td><td class="num">575</td><td class="num">8,220</td></tr>
-      <tr><td>市區交通</td><td>地鐵/JR 5 日（Suica 實付，日均約 ¥800）</td><td class="num">4,000</td><td class="num">840</td><td class="num">12,000</td></tr>
-      <tr><td>餐食</td><td>6 天：早 ¥600・午 ¥1,500・晚 ¥3,000 上下</td><td class="num">31,000</td><td class="num">6,510</td><td class="num">93,000</td></tr>
-      <tr><td>門票</td><td>SHIBUYA SKY 2,200＋teamLab 4,400＋博物館 1,000＋淺草觀光中心展望台免費<br><small>江戶川花火自由觀覽區免費</small></td><td class="num">8,000</td><td class="num">1,680</td><td class="num">24,000</td></tr>
-      <tr><td>伴手禮・雜支</td><td>藥妝、零食、扭蛋、置物櫃、計程車分攤</td><td class="num">15,000</td><td class="num">3,150</td><td class="num">45,000</td></tr>
-      <tr><td>預備金</td><td>臨時加碼、天氣備案（約總額 10%）</td><td class="num">6,000</td><td class="num">1,260</td><td class="num">18,000</td></tr>
-      <tr class="total"><td>合計</td><td>當地總花費（不含機票・住宿）</td><td class="num">66,740</td><td class="num">≈ 14,000</td><td class="num">200,220</td></tr>
-    </tbody>
-  </table></div>
-  <p class="note">💴 建議每人帶 <b>¥30,000 現金</b>（屋台、老舖、置物櫃仍是現金社會），其餘刷卡＋Suica。門票類（SHIBUYA SKY、teamLab）出發前刷卡預購保證有位；壽喜燒晚餐（今半／米久）建議先訂位。</p>
-</section>
-
-<!-- ================= LEDGER ================= -->
-<section id="ledger">
-  <p class="kicker">Expenses</p>
-  <h2 class="serif">旅費記帳<span class="jp">かけいぼ</span></h2>
-  <p class="daymeta"><span>三支手機<b>即時共用</b>同一本帳（約 5 秒內同步），離線時先存本機、恢復連線自動補傳。</span><span id="syncState">☁️ 連線中…</span></p>
-
-  <div class="lcard">
-    <h3>👥 成員</h3>
-    <form class="lform" id="personForm">
-      <input type="text" id="personName" class="grow" placeholder="輸入人名，例如：Jordan" maxlength="20" autocomplete="off">
-      <button type="submit" class="btn">新增成員</button>
-    </form>
-    <div class="pchips" id="personChips"></div>
-  </div>
-
-  <div class="lcard">
-    <h3>🧾 新增一筆</h3>
-    <form class="lform" id="expForm">
-      <select id="expPerson" required></select>
-      <input type="text" id="expItem" class="grow" placeholder="買了什麼？例如：龜十銅鑼燒" maxlength="40" required autocomplete="off">
-      <input type="number" id="expAmt" class="amt" placeholder="金額 ¥" min="1" step="1" inputmode="numeric" required>
-      <button type="submit" class="btn" id="expAdd">記一筆</button>
-    </form>
-  </div>
-
-  <div class="lcard">
-    <h3>📒 帳目清單</h3>
-    <div class="fchips" id="filterChips"></div>
-    <div class="tablewrap" style="box-shadow:none">
-      <table>
-        <thead><tr><th>日期</th><th>成員</th><th>品項</th><th class="num">金額（¥）</th><th></th></tr></thead>
-        <tbody id="expRows"></tbody>
-      </table>
-    </div>
-    <div class="lempty" id="expEmpty">還沒有帳目——先新增成員，再記下第一筆吧。</div>
-    <div class="sumtiles" id="sumTiles"></div>
-  </div>
-</section>
-
-<!-- ================= TIPS ================= -->
-<section id="tips">
-  <p class="kicker">Notes from your guide</p>
-  <h2 class="serif">貼心小提醒<span class="jp">ごあんない</span></h2>
-  <div class="tips">
-    <div class="tip hot"><h3>🥵 酷暑警報（最重要）</h3><ul><li>7 月底東京 33–36°C、濕度 70%+，比台北更悶</li><li>行程已刻意「早出門、午避暑、傍晚再戰」</li><li>每人每天 1.5L 水，自動販賣機到處都有</li><li>陽傘／帽子＋涼感巾，藥妝店買「冷卻噴霧」很有用</li></ul></div>
-    <div class="tip"><h3>📝 出發前必辦清單</h3><ul><li><b>Visit Japan Web</b>：入境＋海關 QR，機上不用寫單子</li><li><b>SHIBUYA SKY・teamLab</b>：線上預購指定時段；壽喜燒（今半／米久）先訂位</li><li>eSIM 先買好（台灣購買比機場便宜）</li><li>下載 Google Maps 離線地圖＋「乘換案內」App</li></ul></div>
-    <div class="tip"><h3>🎆 花火大會攻略</h3><ul><li>當日 8:00 後看官網確認開催（荒天中止）</li><li>帶：野餐墊、防蚊液、行動電源、濕紙巾</li><li>17:00 前到場佔位最從容</li><li>散場人潮洶湧——不趕路，坐等 30 分或走去小岩吃宵夜</li></ul></div>
-    <div class="tip"><h3>🚇 交通小抄</h3><ul><li>手機加 <b>Suica</b>（iPhone 錢包直接加值）最方便</li><li>基地三車站：入谷（日比谷線）8 分・TX 淺草 10 分・淺草駅 15 分</li><li>末班車多在 24:00 前後，晚歸留意</li><li>電扶梯東京靠左站，車廂內輕聲</li></ul></div>
-    <div class="tip"><h3>🏠 Airbnb 禮儀</h3><ul><li>入住規則先讀完：門禁密碼、Wi-Fi、冷氣使用</li><li>住宅區 22:00 後保持安靜（行李箱輪聲注意）</li><li>垃圾依房東指示分類，退房前恢復原狀</li><li>地址日文版存手機：東京都台東区千束2-22-6</li></ul></div>
-    <div class="tip"><h3>💰 退稅＆購物</h3><ul><li>同店同日滿 ¥5,000（未稅）可退 10%，護照必帶</li><li>藥妝先在阿美橫町比價，最後一天唐吉訶德補齊</li><li>免稅品袋子日本境內不可拆封</li><li>龜十銅鑼燒保存 3 天，回程當天買剛好</li></ul></div>
-    <div class="tip"><h3>🌀 天氣備案</h3><ul><li>8 月初是颱風季，出發前一週盯 <a href="https://www.jma.go.jp/" rel="noopener">日本氣象廳</a></li><li>雨天替代：上野博物館群、淺草 EKIMISE／ROX、澀谷／銀座百貨、teamLab 全在室內</li><li>花火中止時→改約 SHIBUYA SKY 夜場，或補訂晴空塔夜景</li></ul></div>
-    <div class="tip"><h3>🍜 深夜救援（住處步行圈）</h3><ul><li>國際通 24h 牛丼（すき家）、拉麵到深夜</li><li>便利商店炸雞＋啤酒是合法的快樂</li><li>錢湯體驗：附近「曙湯」下午開（毛巾可租）</li></ul></div>
-  </div>
-</section>
-
 </main>
 
 <footer>
@@ -721,194 +307,10 @@ footer p{margin:4px 0}
   </div>
 </footer>
 
+<script src="theme.js"></script>
 <script>
 (function(){
-  var btn = document.getElementById('themeBtn');
-  function paint(){
-    var light = document.documentElement.dataset.theme === 'light';
-    btn.textContent = light ? '🌙 深色' : '☀️ 淺色';
-  }
-  btn.addEventListener('click', function(){
-    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-    document.documentElement.dataset.theme = next;
-    try{ localStorage.setItem('tokyo-theme', next); }catch(e){}
-    paint();
-  });
-  paint();
-})();
-
-(function(){
-  var DB_KEY = 'tokyo2026ledger9v3kq8xzt4';
-  var READ_URL = 'https://textdb.online/' + DB_KEY;
-  var WRITE_URL = 'https://textdb.online/update';
-  var KEY = 'tokyo-trip-ledger-v2', OLDKEY = 'tokyo-trip-ledger-v1', RATE = 0.21;
-  var state = {peopleTs:0, people:[], exp:[], delExp:[]};
-  try{ var raw = localStorage.getItem(KEY); if(raw){ state = normalize(JSON.parse(raw)); } }catch(e){}
-  try{ // 匯入舊版（未同步時期）的本機資料
-    var old = localStorage.getItem(OLDKEY);
-    if(old){
-      var o = JSON.parse(old);
-      (o.people || []).forEach(function(p){ if(state.people.indexOf(p) < 0){ state.people.push(p); } });
-      (o.exp || []).forEach(function(e){
-        e.ts = e.ts || parseInt(e.id, 10) || 0;
-        if(!state.exp.some(function(x){ return x.id === e.id; })){ state.exp.push(e); }
-      });
-      state.peopleTs = Date.now();
-      localStorage.removeItem(OLDKEY);
-    }
-  }catch(e){}
-  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
-  var filter = 'all';
-  var $ = function(id){ return document.getElementById(id); };
-  var yen = function(n){ return '¥' + n.toLocaleString('ja-JP'); };
-
-  function normalize(s){
-    s = s || {};
-    var n = {peopleTs: s.peopleTs || 0, people: (s.people || []).slice(),
-             exp: (s.exp || []).slice(), delExp: (s.delExp || []).slice()};
-    n.delExp.sort();
-    n.exp = n.exp.filter(function(e){ return n.delExp.indexOf(e.id) < 0; });
-    n.exp.sort(function(a, b){ return (b.ts || 0) - (a.ts || 0); });
-    n.exp.forEach(function(e){ if(n.people.indexOf(e.p) < 0){ n.people.push(e.p); } });
-    return n;
-  }
-  function merge(a, b){
-    var m = {delExp: [], exp: []};
-    var newer = (a.peopleTs || 0) >= (b.peopleTs || 0) ? a : b;
-    m.peopleTs = newer.peopleTs || 0;
-    m.people = (newer.people || []).slice();
-    (a.delExp || []).concat(b.delExp || []).forEach(function(id){
-      if(m.delExp.indexOf(id) < 0){ m.delExp.push(id); }
-    });
-    var seen = {};
-    (a.exp || []).concat(b.exp || []).forEach(function(e){
-      if(!seen[e.id]){ seen[e.id] = true; m.exp.push(e); }
-    });
-    return normalize(m);
-  }
-
-  var syncTimer = null, syncing = false;
-  function setSync(txt){ var el = $('syncState'); if(el){ el.textContent = txt; } }
-  function syncNow(){
-    if(syncing){ return; }
-    syncing = true;
-    setSync('☁️ 同步中…');
-    fetch(READ_URL, {cache:'no-store'})
-      .then(function(r){
-        if(!r.ok){ throw new Error('http' + r.status); }
-        return r.text();
-      })
-      .then(function(txt){
-        var remote = null;
-        try{ remote = txt ? JSON.parse(txt) : null; }catch(e){}
-        remote = normalize(remote || {});
-        var merged = merge(state, remote);
-        var changedLocal = JSON.stringify(merged) !== JSON.stringify(normalize(state));
-        var changedRemote = JSON.stringify(merged) !== JSON.stringify(remote);
-        state = merged; save();
-        if(changedLocal){ render(); }
-        if(changedRemote){
-          return fetch(WRITE_URL, {method:'POST',
-            headers:{'Content-Type':'application/x-www-form-urlencoded'},
-            body:'key=' + DB_KEY + '&value=' + encodeURIComponent(JSON.stringify(state))})
-            .then(function(r){ if(!r.ok){ throw new Error('http' + r.status); } return r.json(); })
-            .then(function(j){ if(j.status !== 1){ throw new Error('write'); } });
-        }
-      })
-      .then(function(){ setSync('☁️ 已同步'); })
-      .catch(function(){ setSync('📴 離線（已存本機，恢復連線自動補傳）'); })
-      .finally(function(){ syncing = false; });
-  }
-  function queueSync(){ clearTimeout(syncTimer); syncTimer = setTimeout(syncNow, 300); }
-  setInterval(syncNow, 5000);
-  document.addEventListener('visibilitychange', function(){
-    if(document.visibilityState === 'visible'){ syncNow(); }
-  });
-
-  function esc(s){
-    return s.replace(/[&<>"']/g, function(c){
-      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-    });
-  }
-
-  function render(){
-    var chips = state.people.map(function(p){
-      return '<span class="pchip">' + esc(p) +
-        '<button type="button" class="x" data-del-person="' + esc(p) + '" aria-label="刪除成員 ' + esc(p) + '">✕</button></span>';
-    }).join('');
-    $('personChips').innerHTML = chips || '<span class="lempty" style="padding:0">尚無成員</span>';
-
-    $('expPerson').innerHTML = '<option value="" disabled ' + (state.people.length ? '' : 'selected') + '>誰買的？</option>' +
-      state.people.map(function(p){ return '<option>' + esc(p) + '</option>'; }).join('');
-
-    var fs = [['all','全部']].concat(state.people.map(function(p){ return [p, p]; }));
-    if(filter !== 'all' && state.people.indexOf(filter) < 0){ filter = 'all'; }
-    $('filterChips').innerHTML = fs.map(function(f){
-      return '<button type="button" class="fchip' + (filter === f[0] ? ' on' : '') + '" data-filter="' + esc(f[0]) + '">' + esc(f[1]) + '</button>';
-    }).join('');
-
-    var rows = state.exp.filter(function(e){ return filter === 'all' || e.p === filter; });
-    $('expRows').innerHTML = rows.map(function(e){
-      return '<tr><td><small>' + esc(e.d) + '</small></td><td>' + esc(e.p) + '</td><td>' + esc(e.i) +
-        '</td><td class="num">' + yen(e.a) + '</td>' +
-        '<td><button type="button" class="xbtn" data-del-exp="' + e.id + '" aria-label="刪除這筆">✕</button></td></tr>';
-    }).join('');
-    $('expEmpty').style.display = rows.length ? 'none' : 'block';
-
-    var totals = {}, grand = 0;
-    state.exp.forEach(function(e){ totals[e.p] = (totals[e.p] || 0) + e.a; grand += e.a; });
-    $('sumTiles').innerHTML = state.people.map(function(p){
-      var t = totals[p] || 0;
-      return '<div class="sumtile">' + esc(p) + '<b>' + yen(t) + '</b><small>≈ NT$' + Math.round(t * RATE).toLocaleString() + '</small></div>';
-    }).join('') + (grand ? '<div class="sumtile grand">三人合計<b>' + yen(grand) + '</b><small>≈ NT$' + Math.round(grand * RATE).toLocaleString() + '</small></div>' : '');
-  }
-
-  $('personForm').addEventListener('submit', function(ev){
-    ev.preventDefault();
-    var n = $('personName').value.trim();
-    if(!n){ return; }
-    if(state.people.indexOf(n) >= 0){ alert('「' + n + '」已經在名單裡了'); return; }
-    state.people.push(n); state.peopleTs = Date.now(); $('personName').value = '';
-    save(); render(); queueSync();
-  });
-
-  $('expForm').addEventListener('submit', function(ev){
-    ev.preventDefault();
-    var p = $('expPerson').value, i = $('expItem').value.trim(), a = Math.round(Number($('expAmt').value));
-    if(!p || !i || !(a > 0)){ return; }
-    var now = new Date();
-    state.exp.unshift({id: now.getTime() + '' + Math.floor(Math.random() * 1000), ts: now.getTime(),
-      p: p, i: i, a: a, d: (now.getMonth() + 1) + '/' + now.getDate()});
-    $('expItem').value = ''; $('expAmt').value = '';
-    save(); render(); queueSync();
-  });
-
-  document.getElementById('ledger').addEventListener('click', function(ev){
-    var t = ev.target;
-    if(t.dataset.filter){ filter = t.dataset.filter; render(); return; }
-    if(t.dataset.delExp){
-      state.delExp.push(t.dataset.delExp);
-      state.exp = state.exp.filter(function(e){ return e.id !== t.dataset.delExp; });
-      save(); render(); queueSync(); return;
-    }
-    if(t.dataset.delPerson){
-      var p = t.dataset.delPerson;
-      var n = state.exp.filter(function(e){ return e.p === p; }).length;
-      if(!confirm('刪除成員「' + p + '」' + (n ? '和他的 ' + n + ' 筆帳目' : '') + '？（三支手機都會刪除）')){ return; }
-      state.people = state.people.filter(function(x){ return x !== p; });
-      state.peopleTs = Date.now();
-      state.exp.forEach(function(e){ if(e.p === p){ state.delExp.push(e.id); } });
-      state.exp = state.exp.filter(function(e){ return e.p !== p; });
-      save(); render(); queueSync();
-    }
-  });
-
-  render();
-  syncNow();
-})();
-
-(function(){
-  var links = document.querySelectorAll('.daynav a');
+  var links = document.querySelectorAll('.daynav a[href^="#"]');
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
   var obs = new IntersectionObserver(function(entries){
@@ -923,6 +325,5 @@ footer p{margin:4px 0}
   document.querySelectorAll('main section').forEach(function(s){ obs.observe(s); });
 })();
 </script>
-
 </body>
 </html>

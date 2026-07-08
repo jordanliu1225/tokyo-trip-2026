@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>東京夏物語｜旅費記帳</title>
+<link rel="stylesheet" href="style.css">
+<script>(function(){var t;try{t=localStorage.getItem("tokyo-theme")}catch(e){}document.documentElement.dataset.theme=t==="light"?"light":"dark";})();</script>
+</head>
+<body>
+<nav class="daynav" aria-label="頁面導覽">
+  <div class="wrap"><a href="index.html" class="pagelink">🗓 行程</a><a href="map.html" class="pagelink">🗺 地圖</a><a href="budget.html" class="pagelink">💴 預算</a><a href="ledger.html" class="pagelink now">🧾 記帳</a><a href="tips.html" class="pagelink">💡 提醒</a><button type="button" id="themeBtn" class="thbtn" aria-label="切換深淺色主題">☀️ 淺色</button></div>
+</nav>
+
+<main class="wrap">
+
+<section id="ledger">
+  <p class="kicker">Expenses</p>
+  <h2 class="serif">旅費記帳<span class="jp">かけいぼ</span></h2>
+  <p class="daymeta"><span>三支手機<b>即時共用</b>同一本帳（約 5 秒內同步），離線時先存本機、恢復連線自動補傳。</span><span id="syncState">☁️ 連線中…</span></p>
+
+  <div class="lcard">
+    <h3>👥 成員</h3>
+    <form class="lform" id="personForm">
+      <input type="text" id="personName" class="grow" placeholder="輸入人名，例如：Jordan" maxlength="20" autocomplete="off">
+      <button type="submit" class="btn">新增成員</button>
+    </form>
+    <div class="pchips" id="personChips"></div>
+  </div>
+
+  <div class="lcard">
+    <h3>🧾 新增一筆</h3>
+    <form class="lform" id="expForm">
+      <select id="expPerson" required></select>
+      <input type="text" id="expItem" class="grow" placeholder="買了什麼？例如：龜十銅鑼燒" maxlength="40" required autocomplete="off">
+      <input type="number" id="expAmt" class="amt" placeholder="金額 ¥" min="1" step="1" inputmode="numeric" required>
+      <button type="submit" class="btn" id="expAdd">記一筆</button>
+    </form>
+  </div>
+
+  <div class="lcard">
+    <h3>📒 帳目清單</h3>
+    <div class="fchips" id="filterChips"></div>
+    <div class="tablewrap" style="box-shadow:none">
+      <table>
+        <thead><tr><th>日期</th><th>成員</th><th>品項</th><th class="num">金額（¥）</th><th></th></tr></thead>
+        <tbody id="expRows"></tbody>
+      </table>
+    </div>
+    <div class="lempty" id="expEmpty">還沒有帳目——先新增成員，再記下第一筆吧。</div>
+    <div class="sumtiles" id="sumTiles"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="serif" style="font-size:15px; color:var(--ink)">東京夏物語 ・ 2026.7.30–8.4 ・ 三人旅</p>
+    <p>航班時刻以長榮航空最終確認為準；花火大會、展望台開放資訊以主辦方官網當日公告為準。</p>
+    <p>行程與交通時間由你的資深導遊規劃：所有單段移動 ≤ 60 分鐘（含花火會場 55 分）。楽しんでね！🏮</p>
+  </div>
+</footer>
+
+<script src="theme.js"></script>
+<script src="ledger.js"></script>
+</body>
+</html>
