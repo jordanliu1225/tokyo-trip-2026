@@ -738,7 +738,9 @@ footer p{margin:4px 0}
 })();
 
 (function(){
-  var SYNC_URL = 'https://kvdb.io/E9cbivZ9x8dQ43SZ2XSaB7/ledger';
+  var DB_KEY = 'tokyo2026ledger9v3kq8xzt4';
+  var READ_URL = 'https://textdb.online/' + DB_KEY;
+  var WRITE_URL = 'https://textdb.online/update';
   var KEY = 'tokyo-trip-ledger-v2', OLDKEY = 'tokyo-trip-ledger-v1', RATE = 0.21;
   var state = {peopleTs:0, people:[], exp:[], delExp:[]};
   try{ var raw = localStorage.getItem(KEY); if(raw){ state = normalize(JSON.parse(raw)); } }catch(e){}
@@ -791,30 +793,30 @@ footer p{margin:4px 0}
     if(syncing){ return; }
     syncing = true;
     setSync('☁️ 同步中…');
-    fetch(SYNC_URL, {cache:'no-store'})
+    fetch(READ_URL, {cache:'no-store'})
       .then(function(r){
-        if(r.status === 404){ return {peopleTs:0, people:[], exp:[], delExp:[]}; }
         if(!r.ok){ throw new Error('http' + r.status); }
-        return r.json();
+        return r.text();
       })
-      .then(function(remote){
-        remote = normalize(remote);
+      .then(function(txt){
+        var remote = null;
+        try{ remote = txt ? JSON.parse(txt) : null; }catch(e){}
+        remote = normalize(remote || {});
         var merged = merge(state, remote);
         var changedLocal = JSON.stringify(merged) !== JSON.stringify(normalize(state));
         var changedRemote = JSON.stringify(merged) !== JSON.stringify(remote);
         state = merged; save();
         if(changedLocal){ render(); }
         if(changedRemote){
-          return fetch(SYNC_URL, {method:'PUT', headers:{'Content-Type':'application/json'},
-            body: JSON.stringify(state)}).then(function(r){ if(!r.ok){ throw new Error('http' + r.status); } });
+          return fetch(WRITE_URL, {method:'POST',
+            headers:{'Content-Type':'application/x-www-form-urlencoded'},
+            body:'key=' + DB_KEY + '&value=' + encodeURIComponent(JSON.stringify(state))})
+            .then(function(r){ if(!r.ok){ throw new Error('http' + r.status); } return r.json(); })
+            .then(function(j){ if(j.status !== 1){ throw new Error('write'); } });
         }
       })
       .then(function(){ setSync('☁️ 已同步'); })
-      .catch(function(err){
-        setSync(String(err && err.message) === 'http403'
-          ? '⚠️ 同步後端尚未啟用（記錄已存本機不會遺失）'
-          : '📴 離線（已存本機，恢復連線自動補傳）');
-      })
+      .catch(function(){ setSync('📴 離線（已存本機，恢復連線自動補傳）'); })
       .finally(function(){ syncing = false; });
   }
   function queueSync(){ clearTimeout(syncTimer); syncTimer = setTimeout(syncNow, 300); }
