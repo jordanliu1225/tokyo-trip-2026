@@ -136,6 +136,10 @@ h2 .jp{color:var(--muted); font-size:.62em; font-weight:400; margin-left:10px; l
 }
 .leg .ln.walk{background:var(--green)}
 .leg .ln.tx{background:var(--shu)}
+.opts{list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px}
+.opts li{font-size:13.5px; color:var(--muted); background:var(--surface2); border-radius:8px; padding:6px 12px; line-height:1.6}
+.opts li b{color:var(--ink)}
+.opts-label{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.12em; color:var(--gold); margin-top:8px}
 
 /* ---------- route strip ---------- */
 .route{
@@ -227,7 +231,7 @@ footer p{margin:4px 0}
     <div>
       <p class="kicker">2026.7.30 — 8.4 ・ 三人旅 ・ 行前計畫書</p>
       <h1 class="serif">東京<em>夏物語</em><br>淺草為家的六日散策</h1>
-      <p class="sub">以淺草千束的 Airbnb 為基地，半徑一小時的東京精華圈——雷門、晴空塔、上野、澀谷、teamLab，加上週六壓軸的江戶川花火大會。每段移動都控制在 60 分鐘以內。</p>
+      <p class="sub">以淺草千束的 Airbnb 為基地，半徑一小時的東京精華圈——雷門、隅田川遊船、台場、上野、澀谷、teamLab，加上週六壓軸的江戶川花火大會。每段移動都控制在 60 分鐘以內。</p>
       <ul class="facts">
         <li>✈ 去程 <b>BR196</b> 7/30（四）TPE 15:20 → NRT 19:40</li>
         <li>✈ 回程 <b>BR195</b> 8/4（二）NRT 20:40 → TPE 23:20</li>
@@ -241,7 +245,7 @@ footer p{margin:4px 0}
 <nav class="daynav" aria-label="每日行程導覽">
   <div class="wrap">
     <a href="#d1">7/30<span>抵達</span></a>
-    <a href="#d2">7/31<span>淺草・晴空塔</span></a>
+    <a href="#d2">7/31<span>淺草・台場</span></a>
     <a href="#d3">8/1<span>上野・花火</span></a>
     <a href="#d4">8/2<span>神宮・澀谷</span></a>
     <a href="#d5">8/3<span>秋葉原・teamLab</span></a>
@@ -265,7 +269,13 @@ footer p{margin:4px 0}
     <li><span class="t">19:40</span><div class="stop"><h3>抵達成田機場 T1</h3><p>入境審查＋領行李預估 60–70 分（暑假旺季人多）。B1 有 Welcome Suica 售票機可順手辦卡。</p></div></li>
     <li class="transit"><span class="t">21:00</span><span class="leg"><span class="ln tx">京成 Access特急</span>成田機場 → 淺草駅（直達免轉乘）<span class="min">約 60 分</span>・¥1,370</span></li>
     <li><span class="t">22:10</span><div class="stop"><h3>淺草駅 → Airbnb check-in <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=2-ch%C5%8Dme-22-6+Senzoku+Taito+City+T%C5%8Dky%C5%8D" rel="noopener">📍地圖</a></h3><p>三人建議直接搭計程車（約 5 分、¥1,100，分攤便宜），或沿國際通步行 15 分。先跟房東確認自助入住方式與密碼。</p></div></li>
-    <li><span class="t">23:00</span><div class="stop"><h3>便利商店補給・宵夜</h3><p>住處周邊 LAWSON／7-11 買早餐水；想吃熱的，國際通上有 24 小時牛丼（すき家）。明天早起，早點休息。</p></div></li>
+    <li><span class="t">23:00</span><div class="stop"><h3>便利商店補給・宵夜（自選）</h3>
+      <ul class="opts">
+        <li><b>LAWSON／7-11</b> — 買隔天早餐和水，炸雞＋飲料當宵夜最省事</li>
+        <li><b>すき家／松屋（國際通）</b> — 24 小時牛丼，落地第一碗熱的</li>
+        <li><b>名代富士そば 淺草店</b> — 24 小時立食蕎麥，深夜日劇感十足</li>
+      </ul>
+      <p style="margin-top:8px">明天早起看無人的雷門，早點休息。</p></div></li>
   </ul>
   <div class="route">
     <p class="rt-title">本日路線</p>
@@ -281,31 +291,44 @@ footer p{margin:4px 0}
 <!-- ================= DAY 2 ================= -->
 <section id="d2">
   <p class="kicker">Day 2 ・ 7/31 星期五</p>
-  <h2 class="serif">淺草深度日・晴空塔<span class="jp">あさくさ・スカイツリー</span></h2>
-  <p class="daymeta"><span>主題：<b>在地一日，幾乎全程步行</b></span><span>單段交通最長 <span class="badge-max">15 分</span></span></p>
+  <h2 class="serif">淺草深度日・隅田川遊船・台場<span class="jp">あさくさ・おだいば</span></h2>
+  <p class="daymeta"><span>主題：<b>上午在地散策，下午乘船出海</b></span><span>單段交通最長 <span class="badge-max">60 分</span>（遊船本身就是行程）</span></p>
   <ul class="tl">
     <li><span class="t">08:00</span><div class="stop"><h3>淺草寺・雷門 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B5%85%E8%8D%89%E5%AF%BA" rel="noopener">📍地圖</a></h3><p><span class="must">★ 訣竅：</span>8 點前抵達，雷門大燈籠前幾乎沒人，也避開白天酷暑。本堂、五重塔慢慢拍。從住處步行約 10 分。</p></div></li>
     <li><span class="t">09:30</span><div class="stop"><h3>仲見世通・傳法院通</h3><p>人形燒、炸饅頭邊走邊吃（記得站在店旁吃完再走，日本不邊走邊食）。傳法院通有江戶風壁畫，好拍。</p></div></li>
     <li class="transit"><span class="t">11:00</span><span class="leg"><span class="ln walk">徒步</span>淺草寺 → 合羽橋道具街<span class="min">約 12 分</span></span></li>
     <li><span class="t">11:15</span><div class="stop"><h3>合羽橋道具街 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%88%E7%BE%BD%E6%A9%8B%E9%81%93%E5%85%B7%E8%A1%97" rel="noopener">📍地圖</a></h3><p>170 間廚具、食品模型、職人刀具店。喜歡做菜的人會失心瘋，伴手禮在這裡買最有質感。</p></div></li>
-    <li><span class="t">12:30</span><div class="stop"><h3>午餐：老舖天丼或鰻魚</h3><p>推薦「葵丸進」天丼或「色川」鰻重（色川只收現金、常排隊）。回住處小歇躲過 13–14 點最熱時段也可以。</p></div></li>
-    <li class="transit"><span class="t">14:30</span><span class="leg"><span class="ln">東武晴空塔線</span>淺草駅 → とうきょうスカイツリー駅（1 站）<span class="min">3 分</span>・¥160</span></li>
-    <li><span class="t">14:45</span><div class="stop"><h3>東京晴空塔 TOKYO SKYTREE <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Skytree" rel="noopener">📍地圖</a></h3><p><span class="must">★ 需預約：</span>建議先上官網買 350m 天望甲板票（¥2,400 起，當日窗口較貴）。下面 Solamachi 商場有寶可夢中心、龍貓共和國，吹冷氣逛到傍晚。</p></div></li>
-    <li class="transit"><span class="t">17:30</span><span class="leg"><span class="ln walk">徒步</span>晴空塔 → 隅田公園・吾妻橋 → 淺草<span class="min">約 20 分</span>（沿隅田川散步）</span></li>
-    <li><span class="t">18:00</span><div class="stop"><h3>吾妻橋畔黃昏</h3><p>朝日啤酒金色火焰大樓＋晴空塔同框，是淺草代表視角。夕陽時分最美。</p></div></li>
-    <li><span class="t">19:00</span><div class="stop"><h3>晚餐：ホッピー通（燉煮橫丁）</h3><p>淺草最有昭和味的居酒屋街，招牌是牛筋燉煮配 Hoppy 調酒。或改吃月島系文字燒。走路回家 10 分，可以喝到盡興。</p></div></li>
+    <li><span class="t">12:30</span><div class="stop"><h3>午餐（淺草寺步行圈，自選）</h3>
+      <ul class="opts">
+        <li><b>葵丸進</b> — 老舖天丼，酥脆大蝦，觀光客友善</li>
+        <li><b>色川</b> — 1861 年鰻重名店，只收現金、常排隊但值得</li>
+        <li><b>与ろゐ屋</b> — 柚子鹽拉麵，清爽最適合酷暑天</li>
+      </ul>
+      <p style="margin-top:8px">吃完回住處小歇，躲過 13–14 點最熱時段。</p></div></li>
+    <li class="transit"><span class="t">14:40</span><span class="leg"><span class="ln walk">徒步</span>住處 → 吾妻橋「淺草乘船場」<span class="min">約 15 分</span></span></li>
+    <li><span class="t">15:00</span><div class="stop"><h3>隅田川水上巴士 → 台場 🚢 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B5%85%E8%8D%89%E4%B9%97%E8%88%B9%E5%A0%B4" rel="noopener">📍乘船場</a></h3><p><span class="must">★ 建議線上預約：</span>搭松本零士設計的未來船 HOTALUNA／HIMIKO，順隅田川出海直達台場（約 60 分、¥2,220）。穿過 12 座橋、看晴空塔漸遠，船程本身就是觀光。</p></div></li>
+    <li><span class="t">16:10</span><div class="stop"><h3>台場海濱公園・自由女神像 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%8A%E5%8F%B0%E5%A0%B4%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92" rel="noopener">📍地圖</a></h3><p>下船就是沙灘與彩虹橋全景，自由女神像＋彩虹橋同框是經典構圖。</p></div></li>
+    <li><span class="t">17:00</span><div class="stop"><h3>DiverCity Tokyo Plaza：實物大鋼彈</h3><p>18m 實物大獨角獸鋼彈，整點有變身燈光展演（夜間場最精彩）。商場內吹冷氣逛 GUNDAM BASE、藥妝。</p></div></li>
+    <li><span class="t">18:45</span><div class="stop"><h3>台場夕陽・彩虹橋點燈</h3><p>8 月初日落約 18:45，海濱看完夕陽等彩虹橋亮燈，東京灣夜景免費看滿。</p></div></li>
+    <li><span class="t">19:15</span><div class="stop"><h3>晚餐（自選）</h3>
+      <ul class="opts">
+        <li><b>AQUA CiTY 景觀餐廳層</b> — 多國料理任選，窗邊座直望彩虹橋夜景</li>
+        <li><b>bills 台場</b> — 「世界第一早餐」鬆餅，晚餐也吃得到</li>
+        <li><b>回淺草ホッピー通</b> — 昭和味居酒屋街牛筋燉煮＋Hoppy（車程約 40 分，喝完走路回家）</li>
+      </ul></div></li>
+    <li class="transit"><span class="t">20:45</span><span class="leg"><span class="ln">百合海鷗號</span>台場海濱公園 → 新橋<span class="min">15 分</span>　→<span class="ln">都營淺草線</span>新橋 → 淺草<span class="min">11 分</span>　合計約 40 分・¥610</span></li>
   </ul>
   <div class="route">
     <p class="rt-title">本日路線</p>
     <div class="rline">
       <div class="rstop home">千束 Airbnb<small>步行 10 分</small></div>
       <div class="rstop">淺草寺・仲見世<small>步行 12 分</small></div>
-      <div class="rstop">合羽橋<small>步行＋電車</small></div>
-      <div class="rstop">晴空塔<small>東武線 3 分</small></div>
-      <div class="rstop">隅田公園<small>散步 20 分</small></div>
-      <div class="rstop home">淺草・宵夜<small>步行回家</small></div>
+      <div class="rstop">合羽橋<small>步行</small></div>
+      <div class="rstop">吾妻橋乘船場<small>遊船 60 分</small></div>
+      <div class="rstop">台場・鋼彈<small>百合海鷗＋淺草線 40 分</small></div>
+      <div class="rstop home">回淺草<small>步行回家</small></div>
     </div>
-    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/%E6%B5%85%E8%8D%89%E5%AF%BA/%E5%90%88%E7%BE%BD%E6%A9%8B%E9%81%93%E5%85%B7%E8%A1%97/Tokyo+Skytree/%E5%90%BE%E5%A6%BB%E6%A9%8B" rel="noopener">在 Google Maps 開啟本日路線</a></p>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/%E6%B5%85%E8%8D%89%E5%AF%BA/%E5%90%88%E7%BE%BD%E6%A9%8B%E9%81%93%E5%85%B7%E8%A1%97/%E6%B5%85%E8%8D%89%E4%B9%97%E8%88%B9%E5%A0%B4/DiverCity+Tokyo+Plaza" rel="noopener">在 Google Maps 開啟本日路線</a>　｜　<a href="https://www.suijobus.co.jp/" rel="noopener">東京都觀光汽船（水上巴士預約）</a></p>
   </div>
 </section>
 
@@ -317,7 +340,13 @@ footer p{margin:4px 0}
   <ul class="tl">
     <li class="transit"><span class="t">09:00</span><span class="leg"><span class="ln">日比谷線</span>入谷駅 → 上野駅（2 站）<span class="min">4 分</span>・¥180</span></li>
     <li><span class="t">09:15</span><div class="stop"><h3>上野公園・東京國立博物館 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E5%9C%8B%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8" rel="noopener">📍地圖</a></h3><p>日本最大博物館，國寶刀劍、浮世繪，冷氣充足是酷暑避難所（¥1,000）。想看熊貓改上野動物園也行（週六開園，¥600）。<span class="must">★ 注意：博物館週一休館，所以排在今天。</span></p></div></li>
-    <li><span class="t">12:00</span><div class="stop"><h3>阿美橫町 午餐＋掃貨 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%83%A1%E6%A8%AA" rel="noopener">📍地圖</a></h3><p>海鮮丼、烤串老攤；「二木の菓子」零食伴手禮比機場便宜很多。藥妝也可先比價。</p></div></li>
+    <li><span class="t">12:00</span><div class="stop"><h3>阿美橫町 午餐＋掃貨 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%83%A1%E6%A8%AA" rel="noopener">📍地圖</a></h3>
+      <ul class="opts">
+        <li><b>みなとや食品</b> — 阿美橫名物平價海鮮丼（¥500 起），站著吃最有市場味</li>
+        <li><b>山家（やまべ）</b> — 上野排隊炸豬排定食，厚切高 CP 值</li>
+        <li><b>大統領</b> — 昭和老舖串燒居酒屋，白天就開，在地大叔的日常</li>
+      </ul>
+      <p style="margin-top:8px">飯後「二木の菓子」掃零食伴手禮，比機場便宜很多；藥妝先比價。</p></div></li>
     <li class="transit"><span class="t">14:00</span><span class="leg"><span class="ln">日比谷線</span>上野 → 入谷<span class="min">4 分</span>　回住處午休・沖澡</span></li>
     <li><span class="t">14:15</span><div class="stop"><h3>回 Airbnb 休息充電</h3><p>晚上是體力戰：補眠、行動電源充飽、換輕便衣物，帶野餐墊、防蚊液、小風扇、水。</p></div></li>
     <li class="transit"><span class="t">16:00</span><span class="leg"><span class="ln">都營淺草線</span>淺草 → 東日本橋<span class="min">8 分</span>　→ 站內通道轉「馬喰横山」<span class="ln">都營新宿線</span>→ 篠崎駅<span class="min">23 分</span>　→<span class="ln walk">徒步</span>會場<span class="min">15 分</span>　合計約 55 分・¥400</span></li>
@@ -347,11 +376,31 @@ footer p{margin:4px 0}
     <li class="transit"><span class="t">08:30</span><span class="leg"><span class="ln">日比谷線</span>入谷 → 上野<span class="min">4 分</span>　→<span class="ln">JR 山手線</span>上野 → 原宿<span class="min">29 分</span>　合計約 40 分・¥390</span></li>
     <li><span class="t">09:15</span><div class="stop"><h3>明治神宮 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE" rel="noopener">📍地圖</a></h3><p>10 萬棵樹的市中心森林，早上最涼爽清幽。大鳥居、酒樽牆必拍；週日早上有機會遇到日式婚禮隊伍。</p></div></li>
     <li><span class="t">11:00</span><div class="stop"><h3>竹下通・表參道</h3><p>可麗餅、龍蝦堡、大創旗艦店。表參道林蔭大道兩側是建築名作，一路逛到貓街（Cat Street）往澀谷方向。</p></div></li>
-    <li><span class="t">12:30</span><div class="stop"><h3>午餐：原宿周邊</h3><p>AFURI 柚子鹽拉麵（清爽適合夏天）或燒肉 LIKE 一人燒肉。甜點補「Marion Crêpes」。</p></div></li>
+    <li><span class="t">12:30</span><div class="stop"><h3>午餐：原宿周邊（自選）</h3>
+      <ul class="opts">
+        <li><b>AFURI 原宿</b> — 柚子鹽拉麵，清爽系代表，夏天首選</li>
+        <li><b>燒肉 LIKE</b> — 一人一爐燒肉定食，快速不用等</li>
+        <li><b>Eggs 'n Things 原宿店</b> — 夏威夷鬆餅山，甜食派的午餐（假日要排）</li>
+      </ul>
+      <p style="margin-top:8px">甜點補「Marion Crêpes」竹下通可麗餅始祖。</p></div></li>
     <li class="transit"><span class="t">14:30</span><span class="leg"><span class="ln">JR 山手線</span>原宿 → 澀谷（1 站）<span class="min">2 分</span>・¥150（逛街走貓街過去也只要 20 分）</span></li>
-    <li><span class="t">14:45</span><div class="stop"><h3>澀谷：八公像・全向十字路口 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B8%8B%E8%B0%B7%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E4%BA%A4%E5%B7%AE%E7%82%B9" rel="noopener">📍地圖</a></h3><p>世界最忙的十字路口。PARCO 6F 任天堂／寶可夢官方店、澀谷 LOFT 雜貨，冷氣避暑順便採買。</p></div></li>
+    <li><span class="t">14:45</span><div class="stop"><h3>澀谷：八公像・全向十字路口 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B8%8B%E8%B0%B7%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E4%BA%A4%E5%B7%AE%E7%82%B9" rel="noopener">📍地圖</a></h3><p>世界最忙的十字路口拍完照，進百貨吹冷氣採買。</p>
+      <span class="opts-label">百貨任選（都在車站步行 5 分內）</span>
+      <ul class="opts">
+        <li><b>澀谷 Scramble Square</b> — SHIBUYA SKY 同棟，B2–14F 伴手禮、甜點、雜貨最齊，逛完直接上樓看夜景</li>
+        <li><b>PARCO</b> — 6F 任天堂／寶可夢／卡普空官方店一層全包，動漫迷必去</li>
+        <li><b>澀谷 Hikarie</b> — 質感路線，B2 甜點街、6–8F 餐廳與日本設計雜貨</li>
+        <li><b>澀谷 LOFT／東急手創館</b> — 文具與生活雜貨天堂，挑禮物最快</li>
+        <li><b>MEGA 唐吉訶德 澀谷本店</b> — 24 小時藥妝零食掃貨，可退稅</li>
+        <li><b>SHIBUYA 109</b> — 澀谷地標，日系年輕潮流服飾</li>
+      </ul></div></li>
     <li><span class="t">18:00</span><div class="stop"><h3>SHIBUYA SKY 展望台 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=SHIBUYA+SKY" rel="noopener">📍地圖</a></h3><p><span class="must">★ 一定要提前線上訂票（¥2,200 起）：</span>日落場（8 月初日落約 18:45）最搶手，建議 7 月中就訂 18:00 入場，白天→夕燒→夜景一次看滿。頂樓禁帶帽子與手持包以外物品，有置物櫃。</p></div></li>
-    <li><span class="t">19:45</span><div class="stop"><h3>晚餐：澀谷橫丁</h3><p>宮下公園旁的復古橫丁，全日本鄉土料理串成一條街，熱鬧適合三人小酌。</p></div></li>
+    <li><span class="t">19:45</span><div class="stop"><h3>晚餐：澀谷（自選）</h3>
+      <ul class="opts">
+        <li><b>澀谷橫丁</b> — 宮下公園旁復古橫丁，全日本鄉土料理串成一條街，適合三人小酌</li>
+        <li><b>澀谷 肉橫丁</b> — 一整層烤肉、串燒、肉壽司小店，熱鬧便宜</li>
+        <li><b>一蘭 澀谷店</b> — 想吃安全牌拉麵就它，24 小時不怕排不到</li>
+      </ul></div></li>
     <li class="transit"><span class="t">21:30</span><span class="leg"><span class="ln">銀座線</span>澀谷 → 淺草（起訖站直達，有位子坐）<span class="min">36 分</span>・¥260</span></li>
   </ul>
   <div class="route">
@@ -376,12 +425,30 @@ footer p{margin:4px 0}
   <ul class="tl">
     <li class="transit"><span class="t">09:30</span><span class="leg"><span class="ln tx">筑波快線 TX</span>淺草駅（TX）→ 秋葉原（直達）<span class="min">8 分</span>・¥210　<span>住處走到 TX 淺草駅約 10 分</span></span></li>
     <li><span class="t">09:45</span><div class="stop"><h3>秋葉原電器街 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%8B%E8%91%89%E5%8E%9F%E9%9B%BB%E6%B0%97%E8%A1%97" rel="noopener">📍地圖</a></h3><p>Yodobashi Akiba 電器比價、ラジオ会館 模型公仔、扭蛋百貨 GiGO。動漫迷預留整個上午都不夠。</p></div></li>
-    <li><span class="t">12:00</span><div class="stop"><h3>午餐：丸五豬排</h3><p>秋葉原名店厚切炸豬排（11:30 前到門口排第一輪較穩）。快食替代：肉の万世排骨飯。</p></div></li>
+    <li><span class="t">12:00</span><div class="stop"><h3>午餐：秋葉原（自選）</h3>
+      <ul class="opts">
+        <li><b>丸五</b> — 秋葉原第一炸豬排，厚切多汁（11:30 前到門口排第一輪較穩）</li>
+        <li><b>九州じゃんがら 秋葉原本店</b> — 濃厚豚骨拉麵，秋葉原老字號</li>
+        <li><b>牛かつ壱弐参</b> — 炸牛排自烤石板，稀有部位一口入魂（排隊名店）</li>
+      </ul></div></li>
     <li class="transit"><span class="t">13:45</span><span class="leg"><span class="ln">JR 山手線</span>秋葉原 → 新橋<span class="min">9 分</span>　→<span class="ln">百合海鷗號</span>新橋 → 新豐洲<span class="min">21 分</span>　合計約 45 分・¥560</span></li>
     <li><span class="t">15:00</span><div class="stop"><h3>teamLab Planets TOKYO <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=teamLab+Planets+TOKYO" rel="noopener">📍地圖</a></h3><p><span class="must">★ 一定要提前線上購票（¥4,400 前後、指定時段）：</span>赤腳走進水中鏡池與花海宇宙，全東京最好拍的沉浸式美術館。穿好穿脫的鞋、裙裝現場有短褲可借。全程約 2 小時。</p></div></li>
     <li class="transit"><span class="t">17:30</span><span class="leg"><span class="ln">百合海鷗號</span>新豐洲 → 新橋<span class="min">21 分</span>　→<span class="ln walk">徒步</span>銀座<span class="min">10 分</span></span></li>
-    <li><span class="t">18:10</span><div class="stop"><h3>銀座黃昏 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=GINZA+SIX" rel="noopener">📍地圖</a></h3><p>UNIQLO 銀座旗艦（12 層樓）、GINZA SIX、伊東屋文具。百貨 B1 食品街（Depachika）買高級甜點回家當宵夜。</p></div></li>
-    <li><span class="t">19:30</span><div class="stop"><h3>晚餐：銀座篝雞白湯 或 迴轉壽司</h3><p>「篝 Kagari」雞白湯拉麵米其林推薦；想吃壽司選「まぐろ問屋」。預算充足可升級天婦羅老舖「天國」。</p></div></li>
+    <li><span class="t">18:10</span><div class="stop"><h3>銀座黃昏 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=GINZA+SIX" rel="noopener">📍地圖</a></h3><p>百貨林立的中央通，週末下午是行人天國。B1 食品街（Depachika）買高級甜點回家當宵夜。</p>
+      <span class="opts-label">百貨任選（中央通沿線步行圈）</span>
+      <ul class="opts">
+        <li><b>GINZA SIX</b> — 銀座最新地標，藝術裝置＋頂級選品，屋上花園免費看夜景</li>
+        <li><b>銀座三越／松屋銀座</b> — 老牌雙雄，B1 食品街甜點伴手禮最強</li>
+        <li><b>東急 PLAZA 銀座</b> — 8–9F 大型免稅專區，退稅一次搞定</li>
+        <li><b>UNIQLO／無印良品 銀座旗艦</b> — 全球最大店型，日本限定款在這找</li>
+        <li><b>伊東屋 G.Itoya</b> — 12 層樓文具專門店，文具控的聖地</li>
+      </ul></div></li>
+    <li><span class="t">19:30</span><div class="stop"><h3>晚餐：銀座（自選）</h3>
+      <ul class="opts">
+        <li><b>篝 Kagari</b> — 雞白湯拉麵，米其林推薦，濃郁如濃湯</li>
+        <li><b>まぐろ問屋 三浦三崎港</b> — 鮪魚批發商直營迴轉壽司，新鮮划算</li>
+        <li><b>天國</b> — 1885 年天婦羅老舖，預算充足的升級選擇</li>
+      </ul></div></li>
     <li class="transit"><span class="t">21:15</span><span class="leg"><span class="ln">都營淺草線</span>東銀座 → 淺草（直達）<span class="min">18 分</span>・¥220</span></li>
   </ul>
   <div class="route">
@@ -407,7 +474,12 @@ footer p{margin:4px 0}
     <li class="transit"><span class="t">10:00</span><span class="leg"><span class="ln walk">徒步/計程車</span>行李寄淺草駅投幣置物櫃<span class="min">15 分</span>　大型櫃 ¥700–800，早上位子多</span></li>
     <li><span class="t">10:30</span><div class="stop"><h3>龜十銅鑼燒 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%80%E5%8D%81" rel="noopener">📍地圖</a></h3><p>東京第一銅鑼燒，雷門對面。平日上午排 20–30 分就買得到，帶回台灣當伴手禮（保存 3 天）。</p></div></li>
     <li><span class="t">11:00</span><div class="stop"><h3>唐吉訶德淺草店・最後採買</h3><p>藥妝、零食一次補齊，滿 ¥5,000 記得帶護照退稅。分頭行動：一人排退稅、兩人繼續掃貨效率高。</p></div></li>
-    <li><span class="t">12:30</span><div class="stop"><h3>告別午餐：並木藪蕎麥</h3><p>1913 年創業的江戶前蕎麥老舖，雷門走 3 分鐘。夏天點冷的せいろ最對味。替代：大黑家天麩羅。</p></div></li>
+    <li><span class="t">12:30</span><div class="stop"><h3>告別午餐：淺草老舖（自選）</h3>
+      <ul class="opts">
+        <li><b>並木藪蕎麥</b> — 1913 年江戶前蕎麥，夏天點冷的せいろ最對味</li>
+        <li><b>大黑家天麩羅</b> — 1887 年老舖，胡麻油炸的深色天丼是招牌</li>
+        <li><b>淺草今半 國際通本店</b> — 百年壽喜燒，午間定食價格親切，為旅程收尾</li>
+      </ul></div></li>
     <li><span class="t">14:00</span><div class="stop"><h3>淺草自由時間</h3><p>沒逛完的仲見世、寺前抽個籤、買最後的咖啡。16:00 前回淺草駅取行李。</p></div></li>
     <li class="transit"><span class="t">16:20</span><span class="leg"><span class="ln tx">京成 Access特急</span>淺草駅 → 成田機場 T1（直達）<span class="min">約 60 分</span>・¥1,370</span></li>
     <li><span class="t">17:30</span><div class="stop"><h3>成田機場 T1 報到</h3><p>起飛前 3 小時到，報到、退稅檢查、免稅店都從容。長榮櫃檯起飛前 60 分關櫃。</p></div></li>
@@ -435,7 +507,7 @@ footer p{margin:4px 0}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <div id="leafmap" role="img" aria-label="六日行程真實路線地圖"></div>
     <div class="map-legend">
-      <span><i style="background:#b73a2c"></i>7/31 淺草・晴空塔</span>
+      <span><i style="background:#b73a2c"></i>7/31 淺草・遊船・台場</span>
       <span><i style="background:#b98a2f"></i>8/1 上野＋花火</span>
       <span><i style="background:#2b4a7a"></i>8/2 神宮・澀谷</span>
       <span><i style="background:#4a7a5a"></i>8/3 秋葉原・teamLab・銀座</span>
@@ -450,8 +522,8 @@ footer p{margin:4px 0}
     var P = {
       sensoji:   {ll:[35.7148,139.7967], n:'淺草寺・仲見世', d:'7/31 08:00'},
       kappabashi:{ll:[35.7141,139.7887], n:'合羽橋道具街', d:'7/31 11:15'},
-      skytree:   {ll:[35.7101,139.8107], n:'東京晴空塔', d:'7/31 14:45・需預約'},
-      azumabashi:{ll:[35.7096,139.7997], n:'吾妻橋・隅田公園', d:'7/31 18:00 黃昏'},
+      azumabashi:{ll:[35.7096,139.7997], n:'吾妻橋・淺草乘船場', d:'7/31 15:00 搭水上巴士'},
+      odaiba:    {ll:[35.6301,139.7768], n:'台場海濱公園・DiverCity 鋼彈', d:'7/31 16:10 遊船抵達'},
       ueno:      {ll:[35.7188,139.7765], n:'上野公園・東京國立博物館', d:'8/1 09:15'},
       ameyoko:   {ll:[35.7106,139.7746], n:'阿美橫町', d:'8/1 12:00 午餐＋掃貨'},
       hanabi:    {ll:[35.7093,139.9060], n:'🎆 江戶川花火會場（篠崎）', d:'8/1 19:15–20:20'},
@@ -463,7 +535,7 @@ footer p{margin:4px 0}
       ginza:     {ll:[35.6696,139.7639], n:'銀座', d:'8/3 18:10'}
     };
     var DAYS = [
-      {name:'7/31 淺草・晴空塔', color:'#b73a2c', route:['sensoji','kappabashi','skytree','azumabashi']},
+      {name:'7/31 淺草・遊船・台場', color:'#b73a2c', route:['sensoji','kappabashi','azumabashi','odaiba']},
       {name:'8/1 上野＋花火',   color:'#b98a2f', route:['ueno','ameyoko','HOME','hanabi']},
       {name:'8/2 神宮・澀谷',   color:'#2b4a7a', route:['meiji','takeshita','shibuya']},
       {name:'8/3 秋葉原・teamLab・銀座', color:'#4a7a5a', route:['akiba','teamlab','ginza']}
@@ -506,7 +578,7 @@ footer p{margin:4px 0}
       <tr><td>機場交通</td><td>Access特急 淺草⇄成田 來回</td><td class="num">2,740</td><td class="num">575</td><td class="num">8,220</td></tr>
       <tr><td>市區交通</td><td>地鐵/JR 5 日（Suica 實付，日均約 ¥800）</td><td class="num">4,000</td><td class="num">840</td><td class="num">12,000</td></tr>
       <tr><td>餐食</td><td>6 天：早 ¥600・午 ¥1,500・晚 ¥3,000 上下</td><td class="num">31,000</td><td class="num">6,510</td><td class="num">93,000</td></tr>
-      <tr><td>門票</td><td>晴空塔 2,400＋SHIBUYA SKY 2,200＋teamLab 4,400＋博物館 1,000<br><small>江戶川花火自由觀覽區免費</small></td><td class="num">10,000</td><td class="num">2,100</td><td class="num">30,000</td></tr>
+      <tr><td>門票</td><td>隅田川遊船 2,220＋SHIBUYA SKY 2,200＋teamLab 4,400＋博物館 1,000<br><small>江戶川花火自由觀覽區免費</small></td><td class="num">10,000</td><td class="num">2,100</td><td class="num">30,000</td></tr>
       <tr><td>伴手禮・雜支</td><td>藥妝、零食、扭蛋、置物櫃、計程車分攤</td><td class="num">15,000</td><td class="num">3,150</td><td class="num">45,000</td></tr>
       <tr><td>預備金</td><td>臨時加碼、天氣備案（約總額 10%）</td><td class="num">6,000</td><td class="num">1,260</td><td class="num">18,000</td></tr>
       <tr class="total"><td>合計</td><td>當地總花費（不含機票・住宿）</td><td class="num">68,740</td><td class="num">≈ 14,400</td><td class="num">206,220</td></tr>
@@ -521,12 +593,12 @@ footer p{margin:4px 0}
   <h2 class="serif">貼心小提醒<span class="jp">ごあんない</span></h2>
   <div class="tips">
     <div class="tip hot"><h3>🥵 酷暑警報（最重要）</h3><ul><li>7 月底東京 33–36°C、濕度 70%+，比台北更悶</li><li>行程已刻意「早出門、午避暑、傍晚再戰」</li><li>每人每天 1.5L 水，自動販賣機到處都有</li><li>陽傘／帽子＋涼感巾，藥妝店買「冷卻噴霧」很有用</li></ul></div>
-    <div class="tip"><h3>📝 出發前必辦清單</h3><ul><li><b>Visit Japan Web</b>：入境＋海關 QR，機上不用寫單子</li><li><b>SHIBUYA SKY・teamLab・晴空塔</b>：線上預購指定時段</li><li>eSIM 先買好（台灣購買比機場便宜）</li><li>下載 Google Maps 離線地圖＋「乘換案內」App</li></ul></div>
+    <div class="tip"><h3>📝 出發前必辦清單</h3><ul><li><b>Visit Japan Web</b>：入境＋海關 QR，機上不用寫單子</li><li><b>SHIBUYA SKY・teamLab</b>：線上預購指定時段；隅田川水上巴士也可先線上預約</li><li>eSIM 先買好（台灣購買比機場便宜）</li><li>下載 Google Maps 離線地圖＋「乘換案內」App</li></ul></div>
     <div class="tip"><h3>🎆 花火大會攻略</h3><ul><li>當日 8:00 後看官網確認開催（荒天中止）</li><li>帶：野餐墊、防蚊液、行動電源、濕紙巾</li><li>17:00 前到場佔位最從容</li><li>散場人潮洶湧——不趕路，坐等 30 分或走去小岩吃宵夜</li></ul></div>
     <div class="tip"><h3>🚇 交通小抄</h3><ul><li>手機加 <b>Suica</b>（iPhone 錢包直接加值）最方便</li><li>基地三車站：入谷（日比谷線）8 分・TX 淺草 10 分・淺草駅 15 分</li><li>末班車多在 24:00 前後，晚歸留意</li><li>電扶梯東京靠左站，車廂內輕聲</li></ul></div>
     <div class="tip"><h3>🏠 Airbnb 禮儀</h3><ul><li>入住規則先讀完：門禁密碼、Wi-Fi、冷氣使用</li><li>住宅區 22:00 後保持安靜（行李箱輪聲注意）</li><li>垃圾依房東指示分類，退房前恢復原狀</li><li>地址日文版存手機：東京都台東区千束2-22-6</li></ul></div>
     <div class="tip"><h3>💰 退稅＆購物</h3><ul><li>同店同日滿 ¥5,000（未稅）可退 10%，護照必帶</li><li>藥妝先在阿美橫町比價，最後一天唐吉訶德補齊</li><li>免稅品袋子日本境內不可拆封</li><li>龜十銅鑼燒保存 3 天，回程當天買剛好</li></ul></div>
-    <div class="tip"><h3>🌀 天氣備案</h3><ul><li>8 月初是颱風季，出發前一週盯 <a href="https://www.jma.go.jp/" rel="noopener">日本氣象廳</a></li><li>雨天替代：上野博物館群、Solamachi、澀谷百貨、teamLab 全在室內</li><li>花火中止時→改晴空塔夜景或 SHIBUYA SKY 夜場</li></ul></div>
+    <div class="tip"><h3>🌀 天氣備案</h3><ul><li>8 月初是颱風季，出發前一週盯 <a href="https://www.jma.go.jp/" rel="noopener">日本氣象廳</a></li><li>雨天替代：上野博物館群、台場 DiverCity、澀谷／銀座百貨、teamLab 全在室內</li><li>花火中止時→改約 SHIBUYA SKY 夜場，或補訂晴空塔夜景</li></ul></div>
     <div class="tip"><h3>🍜 深夜救援（住處步行圈）</h3><ul><li>國際通 24h 牛丼（すき家）、拉麵到深夜</li><li>便利商店炸雞＋啤酒是合法的快樂</li><li>錢湯體驗：附近「曙湯」下午開（毛巾可租）</li></ul></div>
   </div>
 </section>
