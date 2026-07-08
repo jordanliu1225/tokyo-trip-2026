@@ -7,7 +7,7 @@
 
 ## 目前線上網址（已可直接使用）
 
-https://claude.ai/code/artifact/a4642cd6-6ab5-4c39-b52c-99654886f57c
+https://jordanliu1225.github.io/tokyo-trip-2026
 
 ## 部署到 GitHub Pages（三步驟）
 
