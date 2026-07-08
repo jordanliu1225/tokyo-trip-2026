@@ -23,9 +23,9 @@
     <div id="leafmap" role="img" aria-label="六日行程真實路線地圖"></div>
     <div class="map-legend">
       <span><i style="background:#b73a2c"></i>7/31 淺草在地日</span>
-      <span><i style="background:#b98a2f"></i>8/1 上野＋花火</span>
+      <span><i style="background:#b98a2f"></i>8/1 阿美橫＋花火</span>
       <span><i style="background:#2b4a7a"></i>8/2 神宮・澀谷</span>
-      <span><i style="background:#4a7a5a"></i>8/3 築地・teamLab・銀座</span>
+      <span><i style="background:#4a7a5a"></i>8/3 築地・銀座</span>
     </div>
     <figcaption>底圖 © OpenStreetMap。彩線為當日順路連線（非實際軌道路徑），所有單段車程均 ≤ 60 分。</figcaption>
   </figure>
@@ -37,23 +37,21 @@
     var P = {
       sensoji:   {ll:[35.7148,139.7967], n:'淺草寺・仲見世', d:'7/31 08:00'},
       kappabashi:{ll:[35.7141,139.7887], n:'合羽橋道具街', d:'7/31 11:15'},
-      kanko:     {ll:[35.7108,139.7963], n:'淺草文化觀光中心・新仲見世商店街', d:'7/31 15:30 展望台＋逛街'},
+      kanko:     {ll:[35.7108,139.7963], n:'新仲見世商店街・EKIMISE 周邊', d:'7/31 15:30 逛街'},
       azumabashi:{ll:[35.7096,139.7997], n:'吾妻橋・隅田公園', d:'7/31 18:00 黃昏、18:45 壽喜燒'},
-      ueno:      {ll:[35.7188,139.7765], n:'上野公園・東京國立博物館', d:'8/1 09:15'},
-      ameyoko:   {ll:[35.7106,139.7746], n:'阿美橫町', d:'8/1 12:00 午餐＋掃貨'},
+      ameyoko:   {ll:[35.7106,139.7746], n:'阿美橫町', d:'8/1 10:45 午餐＋掃貨'},
       hanabi:    {ll:[35.7093,139.9060], n:'🎆 江戶川花火會場（篠崎）', d:'8/1 19:15–20:20'},
       meiji:     {ll:[35.6764,139.6993], n:'明治神宮', d:'8/2 09:15'},
       takeshita: {ll:[35.6716,139.7031], n:'竹下通・表參道', d:'8/2 11:00'},
-      shibuya:   {ll:[35.6590,139.7025], n:'澀谷・SHIBUYA SKY', d:'8/2 18:00・需預約'},
+      shibuya:   {ll:[35.6590,139.7025], n:'澀谷 百貨逛街', d:'8/2 14:45 到晚餐'},
       tsukiji:   {ll:[35.6654,139.7707], n:'築地場外市場・築地本願寺', d:'8/3 09:00 海鮮早午餐'},
-      teamlab:   {ll:[35.6491,139.7897], n:'teamLab Planets TOKYO', d:'8/3 15:00・需預約'},
-      ginza:     {ll:[35.6696,139.7639], n:'銀座', d:'8/3 18:10'}
+      ginza:     {ll:[35.6696,139.7639], n:'銀座百貨', d:'8/3 14:15 午後慢逛'}
     };
     var DAYS = [
       {name:'7/31 淺草在地日', color:'#b73a2c', route:['sensoji','kappabashi','kanko','azumabashi']},
-      {name:'8/1 上野＋花火',   color:'#b98a2f', route:['ueno','ameyoko','HOME','hanabi']},
+      {name:'8/1 阿美橫＋花火', color:'#b98a2f', route:['ameyoko','HOME','hanabi']},
       {name:'8/2 神宮・澀谷',   color:'#2b4a7a', route:['meiji','takeshita','shibuya']},
-      {name:'8/3 築地・teamLab・銀座', color:'#4a7a5a', route:['tsukiji','teamlab','ginza']}
+      {name:'8/3 築地・銀座',   color:'#4a7a5a', route:['tsukiji','ginza']}
     ];
     var map = L.map('leafmap', {scrollWheelZoom:false});
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
