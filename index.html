@@ -159,8 +159,16 @@ h2 .jp{color:var(--muted); font-size:.62em; font-weight:400; margin-left:10px; l
 .gmap-day{margin:12px 0 0; font-size:13.5px}
 
 /* ---------- map ---------- */
-.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow); overflow-x:auto}
-.mapbox svg{display:block; min-width:620px; width:100%; height:auto}
+.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow)}
+#leafmap{height:500px; width:100%; border-radius:10px; z-index:0; background:var(--surface2)}
+#leafmap .home-pin{font-size:26px; line-height:1; color:#b98a2f; text-shadow:0 1px 2px rgba(0,0,0,.5), 0 0 4px #fff}
+#leafmap .leaflet-popup-content{font-family:inherit; font-size:13.5px; line-height:1.5; margin:10px 14px}
+#leafmap .leaflet-popup-content b{display:block}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) #leafmap .leaflet-tile{filter:brightness(.72) contrast(1.05) saturate(.75)}
+}
+:root[data-theme="dark"] #leafmap .leaflet-tile{filter:brightness(.72) contrast(1.05) saturate(.75)}
+:root[data-theme="light"] #leafmap .leaflet-tile{filter:none}
 .map-legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13.5px; color:var(--muted); margin-top:10px}
 .map-legend i{display:inline-block; width:18px; height:4px; border-radius:2px; vertical-align:middle; margin-right:6px}
 figcaption{font-size:13px; color:var(--muted); margin-top:10px}
@@ -422,55 +430,69 @@ footer p{margin:4px 0}
 <section id="map">
   <p class="kicker">Route Map</p>
   <h2 class="serif">六日路線總覽圖<span class="jp">ちず</span></h2>
-  <p class="daymeta"><span>以千束 Airbnb（★）為中心的示意圖，每色一天。實際導航請點各日的 Google Maps 連結。</span></p>
+  <p class="daymeta"><span>以千束 Airbnb（★）為中心，每色一天，點景點看說明、右上角圖層可切換各日。實際導航請點各日的 Google Maps 連結。</span></p>
   <figure class="mapbox">
-    <svg viewBox="0 0 820 470" role="img" aria-label="六日行程路線示意地圖">
-      <!-- Sumida river -->
-      <path d="M560 20 C 545 120, 560 200, 540 300 C 528 360, 545 420, 540 465" fill="none" stroke="var(--ai)" stroke-width="14" opacity=".15"/>
-      <text x="568" y="330" font-size="11" fill="var(--ai)" opacity=".7">隅田川</text>
-      <!-- Edogawa river -->
-      <path d="M712 20 C 705 120, 720 220, 712 320 C 708 380, 718 430, 715 465" fill="none" stroke="var(--ai)" stroke-width="12" opacity=".12"/>
-      <!-- day routes -->
-      <g fill="none" stroke-width="3" stroke-linecap="round" opacity=".9">
-        <path d="M498 148 L470 190 L452 170 L520 205" stroke="var(--shu)"/><!-- d2: home-sensoji-kappabashi-skytree -->
-        <path d="M498 148 L432 160 L438 178 M498 148 C 560 200, 660 230, 700 275" stroke="var(--gold)"/><!-- d3 ueno + fireworks -->
-        <path d="M498 148 C 400 240, 300 260, 235 292 L242 315 L262 352 L280 360" stroke="var(--ai)"/><!-- d4 -->
-        <path d="M498 148 L448 238 C 430 300, 470 360, 512 392 M512 392 C 470 370, 445 340, 436 322" stroke="var(--green)"/><!-- d5 -->
-      </g>
-      <!-- stations / spots -->
-      <g font-size="12.5" fill="var(--ink)">
-        <g><circle cx="470" cy="190" r="6" fill="var(--shu)"/><text x="482" y="188">淺草寺・仲見世</text></g>
-        <g><circle cx="452" cy="170" r="5" fill="var(--shu)"/><text x="380" y="163">合羽橋道具街</text></g>
-        <g><circle cx="520" cy="205" r="6" fill="var(--shu)"/><text x="532" y="209">晴空塔</text></g>
-        <g><circle cx="432" cy="160" r="6" fill="var(--gold)"/><text x="352" y="145">上野公園・博物館</text></g>
-        <g><circle cx="438" cy="178" r="5" fill="var(--gold)"/><text x="360" y="196">阿美橫町</text></g>
-        <g><circle cx="700" cy="275" r="7" fill="var(--gold)"/><text x="640" y="258">🎆 江戶川花火（篠崎）</text></g>
-        <g><circle cx="235" cy="292" r="6" fill="var(--ai)"/><text x="150" y="286">明治神宮</text></g>
-        <g><circle cx="242" cy="315" r="5" fill="var(--ai)"/><text x="152" y="320">原宿・表參道</text></g>
-        <g><circle cx="262" cy="352" r="6" fill="var(--ai)"/><text x="180" y="372">澀谷 SKY</text></g>
-        <g><circle cx="448" cy="238" r="6" fill="var(--green)"/><text x="460" y="238">秋葉原</text></g>
-        <g><circle cx="512" cy="392" r="6" fill="var(--green)"/><text x="524" y="396">teamLab Planets</text></g>
-        <g><circle cx="436" cy="322" r="5" fill="var(--green)"/><text x="388" y="316">銀座</text></g>
-      </g>
-      <!-- home star -->
-      <g>
-        <path d="M498 136 l3.8 7.8 8.6 1.2 -6.2 6 1.5 8.5 -7.7 -4 -7.7 4 1.5 -8.5 -6.2 -6 8.6 -1.2 z" fill="var(--gold)" stroke="var(--shu)" stroke-width="1.5"/>
-        <text x="512" y="140" font-size="13" font-weight="700" fill="var(--ink)">千束 Airbnb（基地）</text>
-      </g>
-      <!-- narita arrow -->
-      <g opacity=".75">
-        <path d="M735 120 L800 88" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
-        <text x="700" y="112" font-size="11.5" fill="var(--muted)">→ 成田機場（Access特急 60 分）</text>
-      </g>
-    </svg>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <div id="leafmap" role="img" aria-label="六日行程真實路線地圖"></div>
     <div class="map-legend">
-      <span><i style="background:var(--shu)"></i>7/31 淺草・晴空塔</span>
-      <span><i style="background:var(--gold)"></i>8/1 上野＋花火</span>
-      <span><i style="background:var(--ai)"></i>8/2 神宮・澀谷</span>
-      <span><i style="background:var(--green)"></i>8/3 秋葉原・teamLab・銀座</span>
+      <span><i style="background:#b73a2c"></i>7/31 淺草・晴空塔</span>
+      <span><i style="background:#b98a2f"></i>8/1 上野＋花火</span>
+      <span><i style="background:#2b4a7a"></i>8/2 神宮・澀谷</span>
+      <span><i style="background:#4a7a5a"></i>8/3 秋葉原・teamLab・銀座</span>
     </div>
-    <figcaption>方位與距離為示意；藍帶為隅田川／江戶川。所有單段車程均 ≤ 60 分。</figcaption>
+    <figcaption>底圖 © OpenStreetMap。彩線為當日順路連線（非實際軌道路徑），所有單段車程均 ≤ 60 分。</figcaption>
   </figure>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  (function(){
+    if(typeof L === 'undefined'){ return; }
+    var HOME = [35.7206, 139.7903]; // 千束 2-22-6
+    var P = {
+      sensoji:   {ll:[35.7148,139.7967], n:'淺草寺・仲見世', d:'7/31 08:00'},
+      kappabashi:{ll:[35.7141,139.7887], n:'合羽橋道具街', d:'7/31 11:15'},
+      skytree:   {ll:[35.7101,139.8107], n:'東京晴空塔', d:'7/31 14:45・需預約'},
+      azumabashi:{ll:[35.7096,139.7997], n:'吾妻橋・隅田公園', d:'7/31 18:00 黃昏'},
+      ueno:      {ll:[35.7188,139.7765], n:'上野公園・東京國立博物館', d:'8/1 09:15'},
+      ameyoko:   {ll:[35.7106,139.7746], n:'阿美橫町', d:'8/1 12:00 午餐＋掃貨'},
+      hanabi:    {ll:[35.7093,139.9060], n:'🎆 江戶川花火會場（篠崎）', d:'8/1 19:15–20:20'},
+      meiji:     {ll:[35.6764,139.6993], n:'明治神宮', d:'8/2 09:15'},
+      takeshita: {ll:[35.6716,139.7031], n:'竹下通・表參道', d:'8/2 11:00'},
+      shibuya:   {ll:[35.6590,139.7025], n:'澀谷・SHIBUYA SKY', d:'8/2 18:00・需預約'},
+      akiba:     {ll:[35.6984,139.7731], n:'秋葉原電器街', d:'8/3 09:45'},
+      teamlab:   {ll:[35.6491,139.7897], n:'teamLab Planets TOKYO', d:'8/3 15:00・需預約'},
+      ginza:     {ll:[35.6696,139.7639], n:'銀座', d:'8/3 18:10'}
+    };
+    var DAYS = [
+      {name:'7/31 淺草・晴空塔', color:'#b73a2c', route:['sensoji','kappabashi','skytree','azumabashi']},
+      {name:'8/1 上野＋花火',   color:'#b98a2f', route:['ueno','ameyoko','HOME','hanabi']},
+      {name:'8/2 神宮・澀谷',   color:'#2b4a7a', route:['meiji','takeshita','shibuya']},
+      {name:'8/3 秋葉原・teamLab・銀座', color:'#4a7a5a', route:['akiba','teamlab','ginza']}
+    ];
+    var map = L.map('leafmap', {scrollWheelZoom:false});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:18, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    L.marker(HOME, {icon:L.divIcon({className:'', html:'<span class="home-pin">★</span>', iconSize:[26,26], iconAnchor:[13,15]}), zIndexOffset:1000})
+      .addTo(map).bindPopup('<b>千束 Airbnb（基地）</b>台東區千束 2-22-6<br>入谷駅 8 分・TX 淺草 10 分');
+    var overlays = {}, allPts = [HOME];
+    DAYS.forEach(function(day){
+      var pts = [HOME].concat(day.route.map(function(k){ return k==='HOME' ? HOME : P[k].ll; })).concat([HOME]);
+      var g = L.layerGroup();
+      L.polyline(pts, {color:day.color, weight:3.5, opacity:.85, dashArray:'7 7'}).addTo(g);
+      day.route.forEach(function(k){
+        if(k==='HOME') return;
+        var s = P[k];
+        allPts.push(s.ll);
+        L.circleMarker(s.ll, {radius:7, color:'#fff', weight:2, fillColor:day.color, fillOpacity:1})
+          .addTo(g).bindPopup('<b>'+s.n+'</b>'+s.d);
+      });
+      g.addTo(map);
+      overlays['<i style="display:inline-block;width:14px;height:4px;border-radius:2px;vertical-align:middle;background:'+day.color+'"></i> '+day.name] = g;
+    });
+    L.control.layers(null, overlays, {collapsed:true, position:'topright'}).addTo(map);
+    map.fitBounds(L.latLngBounds(allPts), {padding:[36,36]});
+  })();
+  </script>
 </section>
 
 <!-- ================= BUDGET ================= -->
