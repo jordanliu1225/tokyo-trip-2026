@@ -247,3 +247,14 @@ footer p{margin:4px 0}
 /* ---------- multi-page nav ---------- */
 .daynav .pagelink{font-weight:700}
 .daynav .dayrow{margin-top:8px}
+
+/* ---------- apps page ---------- */
+.app-tag{font-size:12px; color:var(--gold); font-weight:700; letter-spacing:.12em; margin:0 0 6px}
+.tip .app-tag + p{margin-top:0}
+.applinks{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.applinks a{
+  font-size:13px; text-decoration:none; color:var(--ink);
+  border:1px solid var(--line); border-radius:999px; padding:3px 13px;
+  background:var(--surface2); font-weight:700;
+}
+.applinks a:hover{border-color:var(--shu); color:var(--shu)}
