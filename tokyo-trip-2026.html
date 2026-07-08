@@ -636,7 +636,7 @@ footer p{margin:4px 0}
 <section id="ledger">
   <p class="kicker">Expenses</p>
   <h2 class="serif">旅費記帳<span class="jp">かけいぼ</span></h2>
-  <p class="daymeta"><span>資料存在<b>這台裝置的瀏覽器</b>裡（不會同步到別人手機），建議推派一位總務統一記帳。</span></p>
+  <p class="daymeta"><span>三支手機<b>即時共用</b>同一本帳（約 5 秒內同步），離線時先存本機、恢復連線自動補傳。</span><span id="syncState">☁️ 連線中…</span></p>
 
   <div class="lcard">
     <h3>👥 成員</h3>
@@ -714,13 +714,82 @@ footer p{margin:4px 0}
 })();
 
 (function(){
-  var KEY = 'tokyo-trip-ledger-v1', RATE = 0.21;
-  var state = {people:[], exp:[]};
-  try{ var raw = localStorage.getItem(KEY); if(raw){ state = JSON.parse(raw); } }catch(e){}
+  var SYNC_URL = 'https://jsonblob.com/api/jsonBlob/019f406a-02ee-7132-80f9-fada4ccbc3c0';
+  var KEY = 'tokyo-trip-ledger-v2', OLDKEY = 'tokyo-trip-ledger-v1', RATE = 0.21;
+  var state = {peopleTs:0, people:[], exp:[], delExp:[]};
+  try{ var raw = localStorage.getItem(KEY); if(raw){ state = normalize(JSON.parse(raw)); } }catch(e){}
+  try{ // 匯入舊版（未同步時期）的本機資料
+    var old = localStorage.getItem(OLDKEY);
+    if(old){
+      var o = JSON.parse(old);
+      (o.people || []).forEach(function(p){ if(state.people.indexOf(p) < 0){ state.people.push(p); } });
+      (o.exp || []).forEach(function(e){
+        e.ts = e.ts || parseInt(e.id, 10) || 0;
+        if(!state.exp.some(function(x){ return x.id === e.id; })){ state.exp.push(e); }
+      });
+      state.peopleTs = Date.now();
+      localStorage.removeItem(OLDKEY);
+    }
+  }catch(e){}
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
   var filter = 'all';
   var $ = function(id){ return document.getElementById(id); };
   var yen = function(n){ return '¥' + n.toLocaleString('ja-JP'); };
+
+  function normalize(s){
+    s = s || {};
+    var n = {peopleTs: s.peopleTs || 0, people: (s.people || []).slice(),
+             exp: (s.exp || []).slice(), delExp: (s.delExp || []).slice()};
+    n.delExp.sort();
+    n.exp = n.exp.filter(function(e){ return n.delExp.indexOf(e.id) < 0; });
+    n.exp.sort(function(a, b){ return (b.ts || 0) - (a.ts || 0); });
+    n.exp.forEach(function(e){ if(n.people.indexOf(e.p) < 0){ n.people.push(e.p); } });
+    return n;
+  }
+  function merge(a, b){
+    var m = {delExp: [], exp: []};
+    var newer = (a.peopleTs || 0) >= (b.peopleTs || 0) ? a : b;
+    m.peopleTs = newer.peopleTs || 0;
+    m.people = (newer.people || []).slice();
+    (a.delExp || []).concat(b.delExp || []).forEach(function(id){
+      if(m.delExp.indexOf(id) < 0){ m.delExp.push(id); }
+    });
+    var seen = {};
+    (a.exp || []).concat(b.exp || []).forEach(function(e){
+      if(!seen[e.id]){ seen[e.id] = true; m.exp.push(e); }
+    });
+    return normalize(m);
+  }
+
+  var syncTimer = null, syncing = false;
+  function setSync(txt){ var el = $('syncState'); if(el){ el.textContent = txt; } }
+  function syncNow(){
+    if(syncing){ return; }
+    syncing = true;
+    setSync('☁️ 同步中…');
+    fetch(SYNC_URL, {headers:{'Accept':'application/json'}, cache:'no-store'})
+      .then(function(r){ if(!r.ok){ throw new Error(r.status); } return r.json(); })
+      .then(function(remote){
+        remote = normalize(remote);
+        var merged = merge(state, remote);
+        var changedLocal = JSON.stringify(merged) !== JSON.stringify(normalize(state));
+        var changedRemote = JSON.stringify(merged) !== JSON.stringify(remote);
+        state = merged; save();
+        if(changedLocal){ render(); }
+        if(changedRemote){
+          return fetch(SYNC_URL, {method:'PUT', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(state)}).then(function(r){ if(!r.ok){ throw new Error(r.status); } });
+        }
+      })
+      .then(function(){ setSync('☁️ 已同步'); })
+      .catch(function(){ setSync('📴 離線（已存本機，恢復連線自動補傳）'); })
+      .finally(function(){ syncing = false; });
+  }
+  function queueSync(){ clearTimeout(syncTimer); syncTimer = setTimeout(syncNow, 300); }
+  setInterval(syncNow, 5000);
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible'){ syncNow(); }
+  });
 
   function esc(s){
     return s.replace(/[&<>"']/g, function(c){
@@ -765,8 +834,8 @@ footer p{margin:4px 0}
     var n = $('personName').value.trim();
     if(!n){ return; }
     if(state.people.indexOf(n) >= 0){ alert('「' + n + '」已經在名單裡了'); return; }
-    state.people.push(n); $('personName').value = '';
-    save(); render();
+    state.people.push(n); state.peopleTs = Date.now(); $('personName').value = '';
+    save(); render(); queueSync();
   });
 
   $('expForm').addEventListener('submit', function(ev){
@@ -774,30 +843,34 @@ footer p{margin:4px 0}
     var p = $('expPerson').value, i = $('expItem').value.trim(), a = Math.round(Number($('expAmt').value));
     if(!p || !i || !(a > 0)){ return; }
     var now = new Date();
-    state.exp.unshift({id: now.getTime() + '' + Math.floor(Math.random() * 1000), p: p, i: i, a: a,
-      d: (now.getMonth() + 1) + '/' + now.getDate()});
+    state.exp.unshift({id: now.getTime() + '' + Math.floor(Math.random() * 1000), ts: now.getTime(),
+      p: p, i: i, a: a, d: (now.getMonth() + 1) + '/' + now.getDate()});
     $('expItem').value = ''; $('expAmt').value = '';
-    save(); render();
+    save(); render(); queueSync();
   });
 
   document.getElementById('ledger').addEventListener('click', function(ev){
     var t = ev.target;
     if(t.dataset.filter){ filter = t.dataset.filter; render(); return; }
     if(t.dataset.delExp){
+      state.delExp.push(t.dataset.delExp);
       state.exp = state.exp.filter(function(e){ return e.id !== t.dataset.delExp; });
-      save(); render(); return;
+      save(); render(); queueSync(); return;
     }
     if(t.dataset.delPerson){
       var p = t.dataset.delPerson;
       var n = state.exp.filter(function(e){ return e.p === p; }).length;
-      if(!confirm('刪除成員「' + p + '」' + (n ? '和他的 ' + n + ' 筆帳目' : '') + '？')){ return; }
+      if(!confirm('刪除成員「' + p + '」' + (n ? '和他的 ' + n + ' 筆帳目' : '') + '？（三支手機都會刪除）')){ return; }
       state.people = state.people.filter(function(x){ return x !== p; });
+      state.peopleTs = Date.now();
+      state.exp.forEach(function(e){ if(e.p === p){ state.delExp.push(e.id); } });
       state.exp = state.exp.filter(function(e){ return e.p !== p; });
-      save(); render();
+      save(); render(); queueSync();
     }
   });
 
   render();
+  syncNow();
 })();
 
 (function(){
