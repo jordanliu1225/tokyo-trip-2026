@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<title>東京夏物語 7/30–8/4 行前計畫書</title>
+<style>
+:root{
+  --bg:#f5f0e6; --surface:#fffdf7; --surface2:#efe8d8;
+  --ink:#26313d; --muted:#68705f; --line:#d9cfba;
+  --shu:#b73a2c; --ai:#2b4a7a; --gold:#b98a2f; --green:#4a7a5a;
+  --shu-soft:#f3ddd6; --ai-soft:#dde6f2; --gold-soft:#f0e5cc;
+  --shadow:0 2px 10px rgba(38,49,61,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
+    --ink:#e8e4d8; --muted:#9aa0ae; --line:#33405a;
+    --shu:#e05a45; --ai:#7da2d9; --gold:#d9a441; --green:#7fb08f;
+    --shu-soft:#3a2530; --ai-soft:#22304a; --gold-soft:#3a3222;
+    --shadow:0 2px 12px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
+  --ink:#e8e4d8; --muted:#9aa0ae; --line:#33405a;
+  --shu:#e05a45; --ai:#7da2d9; --gold:#d9a441; --green:#7fb08f;
+  --shu-soft:#3a2530; --ai-soft:#22304a; --gold-soft:#3a3222;
+  --shadow:0 2px 12px rgba(0,0,0,.35);
+}
+:root[data-theme="light"]{
+  --bg:#f5f0e6; --surface:#fffdf7; --surface2:#efe8d8;
+  --ink:#26313d; --muted:#68705f; --line:#d9cfba;
+  --shu:#b73a2c; --ai:#2b4a7a; --gold:#b98a2f; --green:#4a7a5a;
+  --shu-soft:#f3ddd6; --ai-soft:#dde6f2; --gold-soft:#f0e5cc;
+  --shadow:0 2px 10px rgba(38,49,61,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;
+  line-height:1.75; font-size:16px;
+}
+.serif{font-family:"Noto Serif TC","Yu Mincho","Hiragino Mincho ProN","PMingLiU",serif}
+a{color:var(--ai); text-decoration-thickness:1px; text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--shu); outline-offset:2px; border-radius:4px}
+.wrap{max-width:920px; margin:0 auto; padding:0 20px}
+
+/* ---------- hero ---------- */
+header.hero{
+  border-bottom:3px double var(--line);
+  padding:56px 0 36px; position:relative; overflow:hidden;
+}
+.hero-inner{display:flex; gap:28px; align-items:flex-start}
+.tate{
+  writing-mode:vertical-rl; font-family:"Noto Serif TC","Yu Mincho",serif;
+  font-size:15px; letter-spacing:.35em; color:var(--shu);
+  border-right:1px solid var(--line); padding-right:14px; line-height:1;
+  flex:none; height:150px;
+}
+.hero h1{
+  font-family:"Noto Serif TC","Yu Mincho","Hiragino Mincho ProN",serif;
+  font-size:clamp(30px,5.5vw,46px); margin:0 0 10px; line-height:1.25; text-wrap:balance; font-weight:700;
+}
+.hero h1 em{font-style:normal; color:var(--shu)}
+.hero .sub{color:var(--muted); margin:0 0 20px; max-width:36em}
+.facts{display:flex; flex-wrap:wrap; gap:10px; padding:0; margin:0; list-style:none; font-size:14px}
+.facts li{
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:5px 14px; box-shadow:var(--shadow);
+}
+.facts b{font-weight:700; color:var(--shu)}
+.hanabi{position:absolute; right:-30px; top:-40px; width:260px; opacity:.5; pointer-events:none}
+
+/* ---------- sticky nav ---------- */
+nav.daynav{
+  position:sticky; top:0; z-index:50; background:var(--bg);
+  border-bottom:1px solid var(--line); padding:10px 0;
+}
+.daynav .wrap{display:flex; gap:8px; overflow-x:auto; scrollbar-width:thin}
+.daynav a{
+  flex:none; text-decoration:none; color:var(--ink); font-size:13.5px;
+  border:1px solid var(--line); border-radius:999px; padding:5px 13px; background:var(--surface);
+  white-space:nowrap;
+}
+.daynav a.now{background:var(--shu); border-color:var(--shu); color:#fff8f0}
+.daynav a span{color:var(--muted); font-size:12px; margin-left:4px}
+.daynav a.now span{color:#ffd9cd}
+
+/* ---------- sections ---------- */
+section{padding:44px 0 8px}
+.kicker{
+  font-size:12.5px; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--gold); font-weight:700; margin:0 0 6px;
+}
+h2{
+  font-family:"Noto Serif TC","Yu Mincho",serif; font-size:clamp(23px,3.4vw,30px);
+  margin:0 0 6px; line-height:1.3; text-wrap:balance;
+}
+h2 .jp{color:var(--muted); font-size:.62em; font-weight:400; margin-left:10px; letter-spacing:.1em}
+.daymeta{display:flex; flex-wrap:wrap; gap:8px 18px; color:var(--muted); font-size:14px; margin:4px 0 22px}
+.daymeta b{color:var(--ink)}
+.badge-max{display:inline-block; background:var(--ai-soft); color:var(--ai); border-radius:6px; padding:1px 9px; font-size:13px; font-weight:700}
+
+/* ---------- timeline ---------- */
+.tl{list-style:none; margin:0; padding:0; border-left:2px solid var(--line); margin-left:64px}
+.tl>li{position:relative; padding:0 0 22px 22px}
+.tl>li::before{
+  content:""; position:absolute; left:-7px; top:9px; width:12px; height:12px;
+  border-radius:50%; background:var(--surface); border:3px solid var(--shu);
+}
+.tl>li.transit::before{border-color:var(--line); width:8px; height:8px; left:-5px; top:10px}
+.tl .t{
+  position:absolute; left:-86px; top:4px; width:56px; text-align:right;
+  font-variant-numeric:tabular-nums; font-weight:700; font-size:14.5px; color:var(--shu);
+}
+.tl>li.transit .t{color:var(--muted); font-weight:400}
+.stop{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:13px 16px; box-shadow:var(--shadow)}
+.stop h3{margin:0 0 3px; font-size:16.5px; font-weight:700}
+.stop h3 a.pin{font-size:13px; font-weight:400; margin-left:8px; white-space:nowrap}
+.stop p{margin:0; font-size:14.5px; color:var(--muted)}
+.stop .must{color:var(--gold); font-weight:700; font-size:13px}
+.leg{
+  display:inline-flex; flex-wrap:wrap; align-items:center; gap:7px;
+  font-size:13.5px; color:var(--muted); background:var(--surface2);
+  border-radius:999px; padding:4px 14px;
+}
+.leg .min{font-weight:700; color:var(--ai); font-variant-numeric:tabular-nums}
+.leg .ln{
+  background:var(--ai); color:#fff; border-radius:4px; padding:0 7px;
+  font-size:12px; font-weight:700; letter-spacing:.03em;
+}
+.leg .ln.walk{background:var(--green)}
+.leg .ln.tx{background:var(--shu)}
+
+/* ---------- route strip ---------- */
+.route{
+  margin:22px 0 8px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:16px 18px 12px; box-shadow:var(--shadow); overflow-x:auto;
+}
+.route .rt-title{font-size:12.5px; letter-spacing:.2em; color:var(--muted); margin:0 0 10px; font-weight:700}
+.rline{display:flex; align-items:flex-start; min-width:560px}
+.rstop{flex:1; text-align:center; position:relative; font-size:12.5px; line-height:1.4; padding-top:16px; min-width:64px}
+.rstop::before{
+  content:""; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:11px; height:11px; border-radius:50%; background:var(--shu); z-index:1;
+}
+.rstop.home::before{background:var(--gold); box-shadow:0 0 0 3px var(--gold-soft)}
+.rstop::after{
+  content:""; position:absolute; top:5px; left:calc(50% + 7px); right:calc(-50% + 7px);
+  height:2px; background:var(--line);
+}
+.rstop:last-child::after{display:none}
+.rstop small{display:block; color:var(--muted); font-size:11px}
+.gmap-day{margin:12px 0 0; font-size:13.5px}
+
+/* ---------- map ---------- */
+.mapbox{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--shadow); overflow-x:auto}
+.mapbox svg{display:block; min-width:620px; width:100%; height:auto}
+.map-legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13.5px; color:var(--muted); margin-top:10px}
+.map-legend i{display:inline-block; width:18px; height:4px; border-radius:2px; vertical-align:middle; margin-right:6px}
+figcaption{font-size:13px; color:var(--muted); margin-top:10px}
+figure{margin:0}
+
+/* ---------- budget ---------- */
+.tablewrap{overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; font-size:14.5px; min-width:600px}
+th,td{padding:10px 16px; text-align:left; border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+thead th{font-size:13px; letter-spacing:.08em; color:var(--muted); font-weight:700; background:var(--surface2)}
+tbody tr:last-child td{border-bottom:none}
+tr.total td{font-weight:700; background:var(--gold-soft); border-top:2px solid var(--gold)}
+td small{color:var(--muted)}
+.note{font-size:13.5px; color:var(--muted); margin-top:10px}
+
+/* ---------- tips ---------- */
+.tips{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:8px}
+.tip{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:10px; padding:14px 16px; box-shadow:var(--shadow)}
+.tip.hot{border-left-color:var(--shu)}
+.tip h3{margin:0 0 6px; font-size:15.5px}
+.tip p,.tip ul{margin:0; font-size:14px; color:var(--muted)}
+.tip ul{padding-left:18px}
+.tip li{margin:2px 0}
+
+footer{border-top:3px double var(--line); margin-top:56px; padding:26px 0 60px; font-size:13px; color:var(--muted)}
+footer p{margin:4px 0}
+
+@media (max-width:640px){
+  .tl{margin-left:52px}
+  .tl .t{left:-74px; width:48px; font-size:13px}
+  .tate{display:none}
+}
+@media print{
+  nav.daynav{display:none}
+  .stop,.route,.mapbox,.tip,.tablewrap{box-shadow:none}
+  body{font-size:13px}
+}
+</style>
+
+<header class="hero">
+  <svg class="hanabi" viewBox="0 0 200 200" aria-hidden="true">
+    <g stroke="var(--shu)" stroke-width="2" stroke-linecap="round" opacity=".85">
+      <line x1="100" y1="100" x2="100" y2="30"/><line x1="100" y1="100" x2="100" y2="170"/>
+      <line x1="100" y1="100" x2="30" y2="100"/><line x1="100" y1="100" x2="170" y2="100"/>
+      <line x1="100" y1="100" x2="51" y2="51"/><line x1="100" y1="100" x2="149" y2="51"/>
+      <line x1="100" y1="100" x2="51" y2="149"/><line x1="100" y1="100" x2="149" y2="149"/>
+    </g>
+    <g fill="var(--gold)">
+      <circle cx="100" cy="26" r="4"/><circle cx="100" cy="174" r="4"/><circle cx="26" cy="100" r="4"/><circle cx="174" cy="100" r="4"/>
+      <circle cx="48" cy="48" r="4"/><circle cx="152" cy="48" r="4"/><circle cx="48" cy="152" r="4"/><circle cx="152" cy="152" r="4"/>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="tate serif" aria-hidden="true">夏・浅草・花火</div>
+    <div>
+      <p class="kicker">2026.7.30 — 8.4 ・ 三人旅 ・ 行前計畫書</p>
+      <h1 class="serif">東京<em>夏物語</em><br>淺草為家的六日散策</h1>
+      <p class="sub">以淺草千束的 Airbnb 為基地，半徑一小時的東京精華圈——雷門、晴空塔、上野、澀谷、teamLab，加上週六壓軸的江戶川花火大會。每段移動都控制在 60 分鐘以內。</p>
+      <ul class="facts">
+        <li>✈ 去程 <b>BR196</b> 7/30（四）TPE 15:20 → NRT 19:40</li>
+        <li>✈ 回程 <b>BR195</b> 8/4（二）NRT 20:40 → TPE 23:20</li>
+        <li>🏠 台東區千束 2-22-6（淺草寺北側・入谷駅步行 8 分）</li>
+        <li>🎆 8/1（六）第 51 回江戶川區花火大會</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<nav class="daynav" aria-label="每日行程導覽">
+  <div class="wrap">
+    <a href="#d1">7/30<span>抵達</span></a>
+    <a href="#d2">7/31<span>淺草・晴空塔</span></a>
+    <a href="#d3">8/1<span>上野・花火</span></a>
+    <a href="#d4">8/2<span>神宮・澀谷</span></a>
+    <a href="#d5">8/3<span>秋葉原・teamLab</span></a>
+    <a href="#d6">8/4<span>採買・回程</span></a>
+    <a href="#map">地圖</a>
+    <a href="#budget">預算</a>
+    <a href="#tips">提醒</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= DAY 1 ================= -->
+<section id="d1">
+  <p class="kicker">Day 1 ・ 7/30 星期四</p>
+  <h2 class="serif">抵達東京・淺草的第一夜<span class="jp">とうちゃく</span></h2>
+  <p class="daymeta"><span>主題：<b>順利進城、好好休息</b></span><span>單段交通最長 <span class="badge-max">60 分</span></span></p>
+  <ul class="tl">
+    <li><span class="t">12:40</span><div class="stop"><h3>桃園機場 T2 集合</h3><p>起飛前 2.5 小時。先在線上完成 <a href="https://www.vjw.digital.go.jp/" rel="noopener">Visit Japan Web</a>（入境＋海關 QR），入境快很多。</p></div></li>
+    <li><span class="t">15:20</span><div class="stop"><h3>BR196 起飛 ✈</h3><p>長榮 787，飛行約 3 小時 20 分。機上先把日幣、住宿地址截圖備好。</p></div></li>
+    <li><span class="t">19:40</span><div class="stop"><h3>抵達成田機場 T1</h3><p>入境審查＋領行李預估 60–70 分（暑假旺季人多）。B1 有 Welcome Suica 售票機可順手辦卡。</p></div></li>
+    <li class="transit"><span class="t">21:00</span><span class="leg"><span class="ln tx">京成 Access特急</span>成田機場 → 淺草駅（直達免轉乘）<span class="min">約 60 分</span>・¥1,370</span></li>
+    <li><span class="t">22:10</span><div class="stop"><h3>淺草駅 → Airbnb check-in <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=2-ch%C5%8Dme-22-6+Senzoku+Taito+City+T%C5%8Dky%C5%8D" rel="noopener">📍地圖</a></h3><p>三人建議直接搭計程車（約 5 分、¥1,100，分攤便宜），或沿國際通步行 15 分。先跟房東確認自助入住方式與密碼。</p></div></li>
+    <li><span class="t">23:00</span><div class="stop"><h3>便利商店補給・宵夜</h3><p>住處周邊 LAWSON／7-11 買早餐水；想吃熱的，國際通上有 24 小時牛丼（すき家）。明天早起，早點休息。</p></div></li>
+  </ul>
+  <div class="route">
+    <p class="rt-title">本日路線</p>
+    <div class="rline">
+      <div class="rstop">成田機場 T1<small>19:40 著</small></div>
+      <div class="rstop">淺草駅<small>Access特急 60 分</small></div>
+      <div class="rstop home">千束 Airbnb<small>計程車 5 分</small></div>
+    </div>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Narita+Airport+Terminal+1&amp;destination=2-ch%C5%8Dme-22-6+Senzoku+Taito+City&amp;travelmode=transit" rel="noopener">在 Google Maps 開啟「成田 → 住處」大眾運輸路線</a></p>
+  </div>
+</section>
+
+<!-- ================= DAY 2 ================= -->
+<section id="d2">
+  <p class="kicker">Day 2 ・ 7/31 星期五</p>
+  <h2 class="serif">淺草深度日・晴空塔<span class="jp">あさくさ・スカイツリー</span></h2>
+  <p class="daymeta"><span>主題：<b>在地一日，幾乎全程步行</b></span><span>單段交通最長 <span class="badge-max">15 分</span></span></p>
+  <ul class="tl">
+    <li><span class="t">08:00</span><div class="stop"><h3>淺草寺・雷門 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B5%85%E8%8D%89%E5%AF%BA" rel="noopener">📍地圖</a></h3><p><span class="must">★ 訣竅：</span>8 點前抵達，雷門大燈籠前幾乎沒人，也避開白天酷暑。本堂、五重塔慢慢拍。從住處步行約 10 分。</p></div></li>
+    <li><span class="t">09:30</span><div class="stop"><h3>仲見世通・傳法院通</h3><p>人形燒、炸饅頭邊走邊吃（記得站在店旁吃完再走，日本不邊走邊食）。傳法院通有江戶風壁畫，好拍。</p></div></li>
+    <li class="transit"><span class="t">11:00</span><span class="leg"><span class="ln walk">徒步</span>淺草寺 → 合羽橋道具街<span class="min">約 12 分</span></span></li>
+    <li><span class="t">11:15</span><div class="stop"><h3>合羽橋道具街 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%88%E7%BE%BD%E6%A9%8B%E9%81%93%E5%85%B7%E8%A1%97" rel="noopener">📍地圖</a></h3><p>170 間廚具、食品模型、職人刀具店。喜歡做菜的人會失心瘋，伴手禮在這裡買最有質感。</p></div></li>
+    <li><span class="t">12:30</span><div class="stop"><h3>午餐：老舖天丼或鰻魚</h3><p>推薦「葵丸進」天丼或「色川」鰻重（色川只收現金、常排隊）。回住處小歇躲過 13–14 點最熱時段也可以。</p></div></li>
+    <li class="transit"><span class="t">14:30</span><span class="leg"><span class="ln">東武晴空塔線</span>淺草駅 → とうきょうスカイツリー駅（1 站）<span class="min">3 分</span>・¥160</span></li>
+    <li><span class="t">14:45</span><div class="stop"><h3>東京晴空塔 TOKYO SKYTREE <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Skytree" rel="noopener">📍地圖</a></h3><p><span class="must">★ 需預約：</span>建議先上官網買 350m 天望甲板票（¥2,400 起，當日窗口較貴）。下面 Solamachi 商場有寶可夢中心、龍貓共和國，吹冷氣逛到傍晚。</p></div></li>
+    <li class="transit"><span class="t">17:30</span><span class="leg"><span class="ln walk">徒步</span>晴空塔 → 隅田公園・吾妻橋 → 淺草<span class="min">約 20 分</span>（沿隅田川散步）</span></li>
+    <li><span class="t">18:00</span><div class="stop"><h3>吾妻橋畔黃昏</h3><p>朝日啤酒金色火焰大樓＋晴空塔同框，是淺草代表視角。夕陽時分最美。</p></div></li>
+    <li><span class="t">19:00</span><div class="stop"><h3>晚餐：ホッピー通（燉煮橫丁）</h3><p>淺草最有昭和味的居酒屋街，招牌是牛筋燉煮配 Hoppy 調酒。或改吃月島系文字燒。走路回家 10 分，可以喝到盡興。</p></div></li>
+  </ul>
+  <div class="route">
+    <p class="rt-title">本日路線</p>
+    <div class="rline">
+      <div class="rstop home">千束 Airbnb<small>步行 10 分</small></div>
+      <div class="rstop">淺草寺・仲見世<small>步行 12 分</small></div>
+      <div class="rstop">合羽橋<small>步行＋電車</small></div>
+      <div class="rstop">晴空塔<small>東武線 3 分</small></div>
+      <div class="rstop">隅田公園<small>散步 20 分</small></div>
+      <div class="rstop home">淺草・宵夜<small>步行回家</small></div>
+    </div>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/%E6%B5%85%E8%8D%89%E5%AF%BA/%E5%90%88%E7%BE%BD%E6%A9%8B%E9%81%93%E5%85%B7%E8%A1%97/Tokyo+Skytree/%E5%90%BE%E5%A6%BB%E6%A9%8B" rel="noopener">在 Google Maps 開啟本日路線</a></p>
+  </div>
+</section>
+
+<!-- ================= DAY 3 ================= -->
+<section id="d3">
+  <p class="kicker">Day 3 ・ 8/1 星期六 🎆</p>
+  <h2 class="serif">上野・江戶川花火大會<span class="jp">はなびたいかい</span></h2>
+  <p class="daymeta"><span>主題：<b>白天輕鬆逛，晚上花火重頭戲</b></span><span>單段交通最長 <span class="badge-max">55 分</span></span></p>
+  <ul class="tl">
+    <li class="transit"><span class="t">09:00</span><span class="leg"><span class="ln">日比谷線</span>入谷駅 → 上野駅（2 站）<span class="min">4 分</span>・¥180</span></li>
+    <li><span class="t">09:15</span><div class="stop"><h3>上野公園・東京國立博物館 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%B1%E4%BA%AC%E5%9C%8B%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8" rel="noopener">📍地圖</a></h3><p>日本最大博物館，國寶刀劍、浮世繪，冷氣充足是酷暑避難所（¥1,000）。想看熊貓改上野動物園也行（週六開園，¥600）。<span class="must">★ 注意：博物館週一休館，所以排在今天。</span></p></div></li>
+    <li><span class="t">12:00</span><div class="stop"><h3>阿美橫町 午餐＋掃貨 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%82%A2%E3%83%A1%E6%A8%AA" rel="noopener">📍地圖</a></h3><p>海鮮丼、烤串老攤；「二木の菓子」零食伴手禮比機場便宜很多。藥妝也可先比價。</p></div></li>
+    <li class="transit"><span class="t">14:00</span><span class="leg"><span class="ln">日比谷線</span>上野 → 入谷<span class="min">4 分</span>　回住處午休・沖澡</span></li>
+    <li><span class="t">14:15</span><div class="stop"><h3>回 Airbnb 休息充電</h3><p>晚上是體力戰：補眠、行動電源充飽、換輕便衣物，帶野餐墊、防蚊液、小風扇、水。</p></div></li>
+    <li class="transit"><span class="t">16:00</span><span class="leg"><span class="ln">都營淺草線</span>淺草 → 東日本橋<span class="min">8 分</span>　→ 站內通道轉「馬喰横山」<span class="ln">都營新宿線</span>→ 篠崎駅<span class="min">23 分</span>　→<span class="ln walk">徒步</span>會場<span class="min">15 分</span>　合計約 55 分・¥400</span></li>
+    <li><span class="t">17:00</span><div class="stop"><h3>江戶川河川敷 佔位・屋台晚餐 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%AF%A0%E5%B4%8E%E9%A7%85" rel="noopener">📍篠崎駅</a></h3><p>免費觀覽區草地遼闊，提早 2 小時佔位很充裕。沿路屋台買炒麵、烤雞串、刨冰當晚餐，體驗日本夏祭。</p></div></li>
+    <li><span class="t">19:15</span><div class="stop"><h3>🎆 第 51 回江戶川區花火大會（～20:20）</h3><p>約 14,000 發、開場 5 秒 1,000 連發是招牌。對岸是千葉市川，河面倒影絕美。<span class="must">★ 荒天中止、當日官網公告，出門前確認。</span></p></div></li>
+    <li><span class="t">20:30</span><div class="stop"><h3>散場（回程人潮戰）</h3><p>幾十萬人同時離場，篠崎駅會管制進站。不趕時間：在會場多坐 30 分，或步行 25 分到 JR 小岩駅吃碗拉麵再走，體感好很多。預估 22:00–22:30 回到住處。</p></div></li>
+  </ul>
+  <div class="route">
+    <p class="rt-title">本日路線</p>
+    <div class="rline">
+      <div class="rstop home">千束 Airbnb<small>入谷駅 8 分</small></div>
+      <div class="rstop">上野公園・博物館<small>日比谷線 4 分</small></div>
+      <div class="rstop">阿美橫町<small>步行 3 分</small></div>
+      <div class="rstop home">回家午休<small>日比谷線 4 分</small></div>
+      <div class="rstop">篠崎・花火會場<small>都營線 55 分</small></div>
+    </div>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%B5%85%E8%8D%89%E9%A7%85&amp;destination=%E7%AF%A0%E5%B4%8E%E9%A7%85&amp;travelmode=transit" rel="noopener">在 Google Maps 開啟「淺草 → 篠崎」大眾運輸路線</a>　｜　<a href="https://www.city.edogawa.tokyo.jp/hanabi/" rel="noopener">花火大會官網（當日開催確認）</a></p>
+  </div>
+</section>
+
+<!-- ================= DAY 4 ================= -->
+<section id="d4">
+  <p class="kicker">Day 4 ・ 8/2 星期日</p>
+  <h2 class="serif">明治神宮・原宿・澀谷<span class="jp">はらじゅく・しぶや</span></h2>
+  <p class="daymeta"><span>主題：<b>森林、潮流、百萬夜景一次收</b></span><span>單段交通最長 <span class="badge-max">40 分</span></span></p>
+  <ul class="tl">
+    <li class="transit"><span class="t">08:30</span><span class="leg"><span class="ln">日比谷線</span>入谷 → 上野<span class="min">4 分</span>　→<span class="ln">JR 山手線</span>上野 → 原宿<span class="min">29 分</span>　合計約 40 分・¥390</span></li>
+    <li><span class="t">09:15</span><div class="stop"><h3>明治神宮 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE" rel="noopener">📍地圖</a></h3><p>10 萬棵樹的市中心森林，早上最涼爽清幽。大鳥居、酒樽牆必拍；週日早上有機會遇到日式婚禮隊伍。</p></div></li>
+    <li><span class="t">11:00</span><div class="stop"><h3>竹下通・表參道</h3><p>可麗餅、龍蝦堡、大創旗艦店。表參道林蔭大道兩側是建築名作，一路逛到貓街（Cat Street）往澀谷方向。</p></div></li>
+    <li><span class="t">12:30</span><div class="stop"><h3>午餐：原宿周邊</h3><p>AFURI 柚子鹽拉麵（清爽適合夏天）或燒肉 LIKE 一人燒肉。甜點補「Marion Crêpes」。</p></div></li>
+    <li class="transit"><span class="t">14:30</span><span class="leg"><span class="ln">JR 山手線</span>原宿 → 澀谷（1 站）<span class="min">2 分</span>・¥150（逛街走貓街過去也只要 20 分）</span></li>
+    <li><span class="t">14:45</span><div class="stop"><h3>澀谷：八公像・全向十字路口 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B8%8B%E8%B0%B7%E3%82%B9%E3%82%AF%E3%83%A9%E3%83%B3%E3%83%96%E3%83%AB%E4%BA%A4%E5%B7%AE%E7%82%B9" rel="noopener">📍地圖</a></h3><p>世界最忙的十字路口。PARCO 6F 任天堂／寶可夢官方店、澀谷 LOFT 雜貨，冷氣避暑順便採買。</p></div></li>
+    <li><span class="t">18:00</span><div class="stop"><h3>SHIBUYA SKY 展望台 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=SHIBUYA+SKY" rel="noopener">📍地圖</a></h3><p><span class="must">★ 一定要提前線上訂票（¥2,200 起）：</span>日落場（8 月初日落約 18:45）最搶手，建議 7 月中就訂 18:00 入場，白天→夕燒→夜景一次看滿。頂樓禁帶帽子與手持包以外物品，有置物櫃。</p></div></li>
+    <li><span class="t">19:45</span><div class="stop"><h3>晚餐：澀谷橫丁</h3><p>宮下公園旁的復古橫丁，全日本鄉土料理串成一條街，熱鬧適合三人小酌。</p></div></li>
+    <li class="transit"><span class="t">21:30</span><span class="leg"><span class="ln">銀座線</span>澀谷 → 淺草（起訖站直達，有位子坐）<span class="min">36 分</span>・¥260</span></li>
+  </ul>
+  <div class="route">
+    <p class="rt-title">本日路線</p>
+    <div class="rline">
+      <div class="rstop home">千束 Airbnb<small>入谷駅</small></div>
+      <div class="rstop">明治神宮<small>JR 40 分</small></div>
+      <div class="rstop">竹下通・表參道<small>步行</small></div>
+      <div class="rstop">澀谷<small>JR 2 分</small></div>
+      <div class="rstop">SHIBUYA SKY<small>日落 18:45</small></div>
+      <div class="rstop home">銀座線回淺草<small>36 分</small></div>
+    </div>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/%E6%98%8E%E6%B2%BB%E7%A5%9E%E5%AE%AE/%E7%AB%B9%E4%B8%8B%E9%80%9A%E3%82%8A/SHIBUYA+SKY" rel="noopener">在 Google Maps 開啟本日路線</a></p>
+  </div>
+</section>
+
+<!-- ================= DAY 5 ================= -->
+<section id="d5">
+  <p class="kicker">Day 5 ・ 8/3 星期一</p>
+  <h2 class="serif">秋葉原・teamLab Planets・銀座<span class="jp">アキバ・チームラボ</span></h2>
+  <p class="daymeta"><span>主題：<b>動漫電器＋沉浸藝術＋銀座夜</b></span><span>單段交通最長 <span class="badge-max">45 分</span></span></p>
+  <ul class="tl">
+    <li class="transit"><span class="t">09:30</span><span class="leg"><span class="ln tx">筑波快線 TX</span>淺草駅（TX）→ 秋葉原（直達）<span class="min">8 分</span>・¥210　<span>住處走到 TX 淺草駅約 10 分</span></span></li>
+    <li><span class="t">09:45</span><div class="stop"><h3>秋葉原電器街 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A7%8B%E8%91%89%E5%8E%9F%E9%9B%BB%E6%B0%97%E8%A1%97" rel="noopener">📍地圖</a></h3><p>Yodobashi Akiba 電器比價、ラジオ会館 模型公仔、扭蛋百貨 GiGO。動漫迷預留整個上午都不夠。</p></div></li>
+    <li><span class="t">12:00</span><div class="stop"><h3>午餐：丸五豬排</h3><p>秋葉原名店厚切炸豬排（11:30 前到門口排第一輪較穩）。快食替代：肉の万世排骨飯。</p></div></li>
+    <li class="transit"><span class="t">13:45</span><span class="leg"><span class="ln">JR 山手線</span>秋葉原 → 新橋<span class="min">9 分</span>　→<span class="ln">百合海鷗號</span>新橋 → 新豐洲<span class="min">21 分</span>　合計約 45 分・¥560</span></li>
+    <li><span class="t">15:00</span><div class="stop"><h3>teamLab Planets TOKYO <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=teamLab+Planets+TOKYO" rel="noopener">📍地圖</a></h3><p><span class="must">★ 一定要提前線上購票（¥4,400 前後、指定時段）：</span>赤腳走進水中鏡池與花海宇宙，全東京最好拍的沉浸式美術館。穿好穿脫的鞋、裙裝現場有短褲可借。全程約 2 小時。</p></div></li>
+    <li class="transit"><span class="t">17:30</span><span class="leg"><span class="ln">百合海鷗號</span>新豐洲 → 新橋<span class="min">21 分</span>　→<span class="ln walk">徒步</span>銀座<span class="min">10 分</span></span></li>
+    <li><span class="t">18:10</span><div class="stop"><h3>銀座黃昏 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=GINZA+SIX" rel="noopener">📍地圖</a></h3><p>UNIQLO 銀座旗艦（12 層樓）、GINZA SIX、伊東屋文具。百貨 B1 食品街（Depachika）買高級甜點回家當宵夜。</p></div></li>
+    <li><span class="t">19:30</span><div class="stop"><h3>晚餐：銀座篝雞白湯 或 迴轉壽司</h3><p>「篝 Kagari」雞白湯拉麵米其林推薦；想吃壽司選「まぐろ問屋」。預算充足可升級天婦羅老舖「天國」。</p></div></li>
+    <li class="transit"><span class="t">21:15</span><span class="leg"><span class="ln">都營淺草線</span>東銀座 → 淺草（直達）<span class="min">18 分</span>・¥220</span></li>
+  </ul>
+  <div class="route">
+    <p class="rt-title">本日路線</p>
+    <div class="rline">
+      <div class="rstop home">千束 Airbnb<small>TX 淺草駅</small></div>
+      <div class="rstop">秋葉原<small>TX 8 分</small></div>
+      <div class="rstop">teamLab Planets<small>JR＋百合海鷗 45 分</small></div>
+      <div class="rstop">銀座<small>百合海鷗＋步行 35 分</small></div>
+      <div class="rstop home">淺草線回家<small>18 分</small></div>
+    </div>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/%E7%A7%8B%E8%91%89%E5%8E%9F%E9%9B%BB%E6%B0%97%E8%A1%97/teamLab+Planets+TOKYO/GINZA+SIX" rel="noopener">在 Google Maps 開啟本日路線</a>　｜　<a href="https://www.teamlab.art/e/planets/" rel="noopener">teamLab 官方購票</a></p>
+  </div>
+</section>
+
+<!-- ================= DAY 6 ================= -->
+<section id="d6">
+  <p class="kicker">Day 6 ・ 8/4 星期二</p>
+  <h2 class="serif">最後採買・歸途<span class="jp">きたく</span></h2>
+  <p class="daymeta"><span>主題：<b>不趕！20:40 才起飛，還有大半天</b></span><span>單段交通最長 <span class="badge-max">60 分</span></span></p>
+  <ul class="tl">
+    <li><span class="t">09:00</span><div class="stop"><h3>打包・退房</h3><p>Airbnb 通常 10:00–11:00 前退房（先跟房東確認）。垃圾照房東指示分類，房子恢復原狀。</p></div></li>
+    <li class="transit"><span class="t">10:00</span><span class="leg"><span class="ln walk">徒步/計程車</span>行李寄淺草駅投幣置物櫃<span class="min">15 分</span>　大型櫃 ¥700–800，早上位子多</span></li>
+    <li><span class="t">10:30</span><div class="stop"><h3>龜十銅鑼燒 <a class="pin" href="https://www.google.com/maps/search/?api=1&amp;query=%E4%BA%80%E5%8D%81" rel="noopener">📍地圖</a></h3><p>東京第一銅鑼燒，雷門對面。平日上午排 20–30 分就買得到，帶回台灣當伴手禮（保存 3 天）。</p></div></li>
+    <li><span class="t">11:00</span><div class="stop"><h3>唐吉訶德淺草店・最後採買</h3><p>藥妝、零食一次補齊，滿 ¥5,000 記得帶護照退稅。分頭行動：一人排退稅、兩人繼續掃貨效率高。</p></div></li>
+    <li><span class="t">12:30</span><div class="stop"><h3>告別午餐：並木藪蕎麥</h3><p>1913 年創業的江戶前蕎麥老舖，雷門走 3 分鐘。夏天點冷的せいろ最對味。替代：大黑家天麩羅。</p></div></li>
+    <li><span class="t">14:00</span><div class="stop"><h3>淺草自由時間</h3><p>沒逛完的仲見世、寺前抽個籤、買最後的咖啡。16:00 前回淺草駅取行李。</p></div></li>
+    <li class="transit"><span class="t">16:20</span><span class="leg"><span class="ln tx">京成 Access特急</span>淺草駅 → 成田機場 T1（直達）<span class="min">約 60 分</span>・¥1,370</span></li>
+    <li><span class="t">17:30</span><div class="stop"><h3>成田機場 T1 報到</h3><p>起飛前 3 小時到，報到、退稅檢查、免稅店都從容。長榮櫃檯起飛前 60 分關櫃。</p></div></li>
+    <li><span class="t">20:40</span><div class="stop"><h3>BR195 起飛 ✈ → 23:20 抵達桃園</h3><p>お疲れさまでした！六天東京夏物語，圓滿收工。</p></div></li>
+  </ul>
+  <div class="route">
+    <p class="rt-title">本日路線</p>
+    <div class="rline">
+      <div class="rstop home">千束 Airbnb<small>退房</small></div>
+      <div class="rstop">淺草駅寄行李<small>步行 15 分</small></div>
+      <div class="rstop">龜十・唐吉訶德<small>步行圈</small></div>
+      <div class="rstop">淺草駅取行李<small>16:00</small></div>
+      <div class="rstop">成田機場 T1<small>Access特急 60 分</small></div>
+    </div>
+    <p class="gmap-day">🗺 <a href="https://www.google.com/maps/dir/?api=1&amp;origin=%E6%B5%85%E8%8D%89%E9%A7%85&amp;destination=Narita+Airport+Terminal+1&amp;travelmode=transit" rel="noopener">在 Google Maps 開啟「淺草 → 成田」大眾運輸路線</a></p>
+  </div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section id="map">
+  <p class="kicker">Route Map</p>
+  <h2 class="serif">六日路線總覽圖<span class="jp">ちず</span></h2>
+  <p class="daymeta"><span>以千束 Airbnb（★）為中心的示意圖，每色一天。實際導航請點各日的 Google Maps 連結。</span></p>
+  <figure class="mapbox">
+    <svg viewBox="0 0 820 470" role="img" aria-label="六日行程路線示意地圖">
+      <!-- Sumida river -->
+      <path d="M560 20 C 545 120, 560 200, 540 300 C 528 360, 545 420, 540 465" fill="none" stroke="var(--ai)" stroke-width="14" opacity=".15"/>
+      <text x="568" y="330" font-size="11" fill="var(--ai)" opacity=".7">隅田川</text>
+      <!-- Edogawa river -->
+      <path d="M712 20 C 705 120, 720 220, 712 320 C 708 380, 718 430, 715 465" fill="none" stroke="var(--ai)" stroke-width="12" opacity=".12"/>
+      <!-- day routes -->
+      <g fill="none" stroke-width="3" stroke-linecap="round" opacity=".9">
+        <path d="M498 148 L470 190 L452 170 L520 205" stroke="var(--shu)"/><!-- d2: home-sensoji-kappabashi-skytree -->
+        <path d="M498 148 L432 160 L438 178 M498 148 C 560 200, 660 230, 700 275" stroke="var(--gold)"/><!-- d3 ueno + fireworks -->
+        <path d="M498 148 C 400 240, 300 260, 235 292 L242 315 L262 352 L280 360" stroke="var(--ai)"/><!-- d4 -->
+        <path d="M498 148 L448 238 C 430 300, 470 360, 512 392 M512 392 C 470 370, 445 340, 436 322" stroke="var(--green)"/><!-- d5 -->
+      </g>
+      <!-- stations / spots -->
+      <g font-size="12.5" fill="var(--ink)">
+        <g><circle cx="470" cy="190" r="6" fill="var(--shu)"/><text x="482" y="188">淺草寺・仲見世</text></g>
+        <g><circle cx="452" cy="170" r="5" fill="var(--shu)"/><text x="380" y="163">合羽橋道具街</text></g>
+        <g><circle cx="520" cy="205" r="6" fill="var(--shu)"/><text x="532" y="209">晴空塔</text></g>
+        <g><circle cx="432" cy="160" r="6" fill="var(--gold)"/><text x="352" y="145">上野公園・博物館</text></g>
+        <g><circle cx="438" cy="178" r="5" fill="var(--gold)"/><text x="360" y="196">阿美橫町</text></g>
+        <g><circle cx="700" cy="275" r="7" fill="var(--gold)"/><text x="640" y="258">🎆 江戶川花火（篠崎）</text></g>
+        <g><circle cx="235" cy="292" r="6" fill="var(--ai)"/><text x="150" y="286">明治神宮</text></g>
+        <g><circle cx="242" cy="315" r="5" fill="var(--ai)"/><text x="152" y="320">原宿・表參道</text></g>
+        <g><circle cx="262" cy="352" r="6" fill="var(--ai)"/><text x="180" y="372">澀谷 SKY</text></g>
+        <g><circle cx="448" cy="238" r="6" fill="var(--green)"/><text x="460" y="238">秋葉原</text></g>
+        <g><circle cx="512" cy="392" r="6" fill="var(--green)"/><text x="524" y="396">teamLab Planets</text></g>
+        <g><circle cx="436" cy="322" r="5" fill="var(--green)"/><text x="388" y="316">銀座</text></g>
+      </g>
+      <!-- home star -->
+      <g>
+        <path d="M498 136 l3.8 7.8 8.6 1.2 -6.2 6 1.5 8.5 -7.7 -4 -7.7 4 1.5 -8.5 -6.2 -6 8.6 -1.2 z" fill="var(--gold)" stroke="var(--shu)" stroke-width="1.5"/>
+        <text x="512" y="140" font-size="13" font-weight="700" fill="var(--ink)">千束 Airbnb（基地）</text>
+      </g>
+      <!-- narita arrow -->
+      <g opacity=".75">
+        <path d="M735 120 L800 88" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
+        <text x="700" y="112" font-size="11.5" fill="var(--muted)">→ 成田機場（Access特急 60 分）</text>
+      </g>
+    </svg>
+    <div class="map-legend">
+      <span><i style="background:var(--shu)"></i>7/31 淺草・晴空塔</span>
+      <span><i style="background:var(--gold)"></i>8/1 上野＋花火</span>
+      <span><i style="background:var(--ai)"></i>8/2 神宮・澀谷</span>
+      <span><i style="background:var(--green)"></i>8/3 秋葉原・teamLab・銀座</span>
+    </div>
+    <figcaption>方位與距離為示意；藍帶為隅田川／江戶川。所有單段車程均 ≤ 60 分。</figcaption>
+  </figure>
+</section>
+
+<!-- ================= BUDGET ================= -->
+<section id="budget">
+  <p class="kicker">Budget</p>
+  <h2 class="serif">預算規劃<span class="jp">よさん</span></h2>
+  <p class="daymeta"><span>機票與 Airbnb 已訂，以下為<b>當地花費</b>。匯率以 ¥1 ≈ NT$0.21 估算。</span></p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>項目</th><th>內容</th><th class="num">每人（¥）</th><th class="num">每人（NT$）</th><th class="num">三人合計（¥）</th></tr></thead>
+    <tbody>
+      <tr><td>機場交通</td><td>Access特急 淺草⇄成田 來回</td><td class="num">2,740</td><td class="num">575</td><td class="num">8,220</td></tr>
+      <tr><td>市區交通</td><td>地鐵/JR 5 日（Suica 實付，日均約 ¥800）</td><td class="num">4,000</td><td class="num">840</td><td class="num">12,000</td></tr>
+      <tr><td>餐食</td><td>6 天：早 ¥600・午 ¥1,500・晚 ¥3,000 上下</td><td class="num">31,000</td><td class="num">6,510</td><td class="num">93,000</td></tr>
+      <tr><td>門票</td><td>晴空塔 2,400＋SHIBUYA SKY 2,200＋teamLab 4,400＋博物館 1,000<br><small>江戶川花火自由觀覽區免費</small></td><td class="num">10,000</td><td class="num">2,100</td><td class="num">30,000</td></tr>
+      <tr><td>伴手禮・雜支</td><td>藥妝、零食、扭蛋、置物櫃、計程車分攤</td><td class="num">15,000</td><td class="num">3,150</td><td class="num">45,000</td></tr>
+      <tr><td>預備金</td><td>臨時加碼、天氣備案（約總額 10%）</td><td class="num">6,000</td><td class="num">1,260</td><td class="num">18,000</td></tr>
+      <tr class="total"><td>合計</td><td>當地總花費（不含機票・住宿）</td><td class="num">68,740</td><td class="num">≈ 14,400</td><td class="num">206,220</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">💴 建議每人帶 <b>¥30,000 現金</b>（屋台、老舖、置物櫃仍是現金社會），其餘刷卡＋Suica。門票類（SHIBUYA SKY、teamLab、晴空塔）出發前刷卡預購，既省錢又保證有位。</p>
+</section>
+
+<!-- ================= TIPS ================= -->
+<section id="tips">
+  <p class="kicker">Notes from your guide</p>
+  <h2 class="serif">貼心小提醒<span class="jp">ごあんない</span></h2>
+  <div class="tips">
+    <div class="tip hot"><h3>🥵 酷暑警報（最重要）</h3><ul><li>7 月底東京 33–36°C、濕度 70%+，比台北更悶</li><li>行程已刻意「早出門、午避暑、傍晚再戰」</li><li>每人每天 1.5L 水，自動販賣機到處都有</li><li>陽傘／帽子＋涼感巾，藥妝店買「冷卻噴霧」很有用</li></ul></div>
+    <div class="tip"><h3>📝 出發前必辦清單</h3><ul><li><b>Visit Japan Web</b>：入境＋海關 QR，機上不用寫單子</li><li><b>SHIBUYA SKY・teamLab・晴空塔</b>：線上預購指定時段</li><li>eSIM 先買好（台灣購買比機場便宜）</li><li>下載 Google Maps 離線地圖＋「乘換案內」App</li></ul></div>
+    <div class="tip"><h3>🎆 花火大會攻略</h3><ul><li>當日 8:00 後看官網確認開催（荒天中止）</li><li>帶：野餐墊、防蚊液、行動電源、濕紙巾</li><li>17:00 前到場佔位最從容</li><li>散場人潮洶湧——不趕路，坐等 30 分或走去小岩吃宵夜</li></ul></div>
+    <div class="tip"><h3>🚇 交通小抄</h3><ul><li>手機加 <b>Suica</b>（iPhone 錢包直接加值）最方便</li><li>基地三車站：入谷（日比谷線）8 分・TX 淺草 10 分・淺草駅 15 分</li><li>末班車多在 24:00 前後，晚歸留意</li><li>電扶梯東京靠左站，車廂內輕聲</li></ul></div>
+    <div class="tip"><h3>🏠 Airbnb 禮儀</h3><ul><li>入住規則先讀完：門禁密碼、Wi-Fi、冷氣使用</li><li>住宅區 22:00 後保持安靜（行李箱輪聲注意）</li><li>垃圾依房東指示分類，退房前恢復原狀</li><li>地址日文版存手機：東京都台東区千束2-22-6</li></ul></div>
+    <div class="tip"><h3>💰 退稅＆購物</h3><ul><li>同店同日滿 ¥5,000（未稅）可退 10%，護照必帶</li><li>藥妝先在阿美橫町比價，最後一天唐吉訶德補齊</li><li>免稅品袋子日本境內不可拆封</li><li>龜十銅鑼燒保存 3 天，回程當天買剛好</li></ul></div>
+    <div class="tip"><h3>🌀 天氣備案</h3><ul><li>8 月初是颱風季，出發前一週盯 <a href="https://www.jma.go.jp/" rel="noopener">日本氣象廳</a></li><li>雨天替代：上野博物館群、Solamachi、澀谷百貨、teamLab 全在室內</li><li>花火中止時→改晴空塔夜景或 SHIBUYA SKY 夜場</li></ul></div>
+    <div class="tip"><h3>🍜 深夜救援（住處步行圈）</h3><ul><li>國際通 24h 牛丼（すき家）、拉麵到深夜</li><li>便利商店炸雞＋啤酒是合法的快樂</li><li>錢湯體驗：附近「曙湯」下午開（毛巾可租）</li></ul></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="serif" style="font-size:15px; color:var(--ink)">東京夏物語 ・ 2026.7.30–8.4 ・ 三人旅</p>
+    <p>航班時刻以長榮航空最終確認為準；花火大會、展望台開放資訊以主辦方官網當日公告為準。</p>
+    <p>行程與交通時間由你的資深導遊規劃：所有單段移動 ≤ 60 分鐘（含花火會場 55 分）。楽しんでね！🏮</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('.daynav a');
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('now'); });
+        var a = map[e.target.id];
+        if(a){ a.classList.add('now'); a.scrollIntoView({block:'nearest', inline:'nearest'}); }
+      }
+    });
+  }, {rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){ obs.observe(s); });
+})();
+</script>
+
+</body>
+</html>
