@@ -8,20 +8,11 @@
 <title>東京夏物語 7/30–8/4 行前計畫書</title>
 <style>
 :root{
-  --bg:#f5f0e6; --surface:#fffdf7; --surface2:#efe8d8;
-  --ink:#26313d; --muted:#68705f; --line:#d9cfba;
-  --shu:#b73a2c; --ai:#2b4a7a; --gold:#b98a2f; --green:#4a7a5a;
-  --shu-soft:#f3ddd6; --ai-soft:#dde6f2; --gold-soft:#f0e5cc;
-  --shadow:0 2px 10px rgba(38,49,61,.08);
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
-    --ink:#e8e4d8; --muted:#9aa0ae; --line:#33405a;
-    --shu:#e05a45; --ai:#7da2d9; --gold:#d9a441; --green:#7fb08f;
-    --shu-soft:#3a2530; --ai-soft:#22304a; --gold-soft:#3a3222;
-    --shadow:0 2px 12px rgba(0,0,0,.35);
-  }
+  --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
+  --ink:#e8e4d8; --muted:#9aa0ae; --line:#33405a;
+  --shu:#e05a45; --ai:#7da2d9; --gold:#d9a441; --green:#7fb08f;
+  --shu-soft:#3a2530; --ai-soft:#22304a; --gold-soft:#3a3222;
+  --shadow:0 2px 12px rgba(0,0,0,.35);
 }
 :root[data-theme="dark"]{
   --bg:#131722; --surface:#1b2230; --surface2:#232c3e;
@@ -90,6 +81,59 @@ nav.daynav{
 .daynav a.now{background:var(--shu); border-color:var(--shu); color:#fff8f0}
 .daynav a span{color:var(--muted); font-size:12px; margin-left:4px}
 .daynav a.now span{color:#ffd9cd}
+.thbtn{
+  flex:none; margin-left:auto; cursor:pointer; font:inherit; font-size:13.5px;
+  border:1px solid var(--line); border-radius:999px; padding:5px 13px;
+  background:var(--surface); color:var(--ink); white-space:nowrap;
+}
+
+/* ---------- ledger ---------- */
+.lcard{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow); margin-bottom:14px}
+.lcard h3{margin:0 0 10px; font-size:15.5px}
+.lform{display:flex; flex-wrap:wrap; gap:8px}
+.lform input,.lform select{
+  font:inherit; font-size:14.5px; color:var(--ink); background:var(--surface2);
+  border:1px solid var(--line); border-radius:8px; padding:8px 12px; min-width:0;
+}
+.lform input:focus,.lform select:focus{outline:2px solid var(--ai); outline-offset:1px}
+.lform .grow{flex:2 1 140px}
+.lform .amt{flex:1 1 100px}
+.btn{
+  font:inherit; font-size:14.5px; font-weight:700; cursor:pointer;
+  background:var(--shu); color:#fff8f0; border:none; border-radius:8px; padding:8px 18px;
+}
+.btn:disabled{opacity:.5; cursor:not-allowed}
+.pchips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.pchip{
+  display:inline-flex; align-items:center; gap:8px; font-size:14px;
+  background:var(--ai-soft); color:var(--ink); border:1px solid var(--line);
+  border-radius:999px; padding:4px 8px 4px 14px;
+}
+.pchip .x{
+  cursor:pointer; border:none; background:transparent; color:var(--muted);
+  font-size:15px; line-height:1; padding:2px 6px; border-radius:50%;
+}
+.pchip .x:hover{color:var(--shu)}
+.fchips{display:flex; flex-wrap:wrap; gap:8px; margin:2px 0 12px}
+.fchip{
+  cursor:pointer; font:inherit; font-size:13.5px; border:1px solid var(--line);
+  border-radius:999px; padding:4px 14px; background:var(--surface); color:var(--ink);
+}
+.fchip.on{background:var(--shu); border-color:var(--shu); color:#fff8f0}
+.xbtn{
+  cursor:pointer; border:none; background:transparent; color:var(--muted);
+  font-size:16px; line-height:1; padding:2px 8px; border-radius:6px;
+}
+.xbtn:hover{color:var(--shu)}
+.sumtiles{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+.sumtile{
+  background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--ai);
+  border-radius:10px; padding:10px 16px; box-shadow:var(--shadow); font-size:14px;
+}
+.sumtile b{display:block; font-size:17px; font-variant-numeric:tabular-nums}
+.sumtile.grand{border-left-color:var(--gold); background:var(--gold-soft)}
+.sumtile small{color:var(--muted)}
+.lempty{color:var(--muted); font-size:14px; padding:14px 4px}
 
 /* ---------- sections ---------- */
 section{padding:44px 0 8px}
@@ -168,10 +212,7 @@ h2 .jp{color:var(--muted); font-size:.62em; font-weight:400; margin-left:10px; l
 #leafmap .home-pin{font-size:26px; line-height:1; color:#b98a2f; text-shadow:0 1px 2px rgba(0,0,0,.5), 0 0 4px #fff}
 #leafmap .leaflet-popup-content{font-family:inherit; font-size:13.5px; line-height:1.5; margin:10px 14px}
 #leafmap .leaflet-popup-content b{display:block}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]) #leafmap .leaflet-tile{filter:brightness(.72) contrast(1.05) saturate(.75)}
-}
-:root[data-theme="dark"] #leafmap .leaflet-tile{filter:brightness(.72) contrast(1.05) saturate(.75)}
+#leafmap .leaflet-tile{filter:brightness(.72) contrast(1.05) saturate(.75)}
 :root[data-theme="light"] #leafmap .leaflet-tile{filter:none}
 .map-legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:13.5px; color:var(--muted); margin-top:10px}
 .map-legend i{display:inline-block; width:18px; height:4px; border-radius:2px; vertical-align:middle; margin-right:6px}
@@ -252,9 +293,18 @@ footer p{margin:4px 0}
     <a href="#d6">8/4<span>採買・回程</span></a>
     <a href="#map">地圖</a>
     <a href="#budget">預算</a>
+    <a href="#ledger">記帳</a>
     <a href="#tips">提醒</a>
+    <button type="button" id="themeBtn" class="thbtn" aria-label="切換深淺色主題">☀️ 淺色</button>
   </div>
 </nav>
+<script>
+(function(){
+  var t;
+  try{ t = localStorage.getItem('tokyo-theme'); }catch(e){}
+  document.documentElement.dataset.theme = (t === 'light') ? 'light' : 'dark';
+})();
+</script>
 
 <main class="wrap">
 
@@ -589,6 +639,45 @@ footer p{margin:4px 0}
   <p class="note">💴 建議每人帶 <b>¥30,000 現金</b>（屋台、老舖、置物櫃仍是現金社會），其餘刷卡＋Suica。門票類（SHIBUYA SKY、teamLab）出發前刷卡預購保證有位；壽喜燒晚餐（今半／米久）建議先訂位。</p>
 </section>
 
+<!-- ================= LEDGER ================= -->
+<section id="ledger">
+  <p class="kicker">Expenses</p>
+  <h2 class="serif">旅費記帳<span class="jp">かけいぼ</span></h2>
+  <p class="daymeta"><span>資料存在<b>這台裝置的瀏覽器</b>裡（不會同步到別人手機），建議推派一位總務統一記帳。</span></p>
+
+  <div class="lcard">
+    <h3>👥 成員</h3>
+    <form class="lform" id="personForm">
+      <input type="text" id="personName" class="grow" placeholder="輸入人名，例如：Jordan" maxlength="20" autocomplete="off">
+      <button type="submit" class="btn">新增成員</button>
+    </form>
+    <div class="pchips" id="personChips"></div>
+  </div>
+
+  <div class="lcard">
+    <h3>🧾 新增一筆</h3>
+    <form class="lform" id="expForm">
+      <select id="expPerson" required></select>
+      <input type="text" id="expItem" class="grow" placeholder="買了什麼？例如：龜十銅鑼燒" maxlength="40" required autocomplete="off">
+      <input type="number" id="expAmt" class="amt" placeholder="金額 ¥" min="1" step="1" inputmode="numeric" required>
+      <button type="submit" class="btn" id="expAdd">記一筆</button>
+    </form>
+  </div>
+
+  <div class="lcard">
+    <h3>📒 帳目清單</h3>
+    <div class="fchips" id="filterChips"></div>
+    <div class="tablewrap" style="box-shadow:none">
+      <table>
+        <thead><tr><th>日期</th><th>成員</th><th>品項</th><th class="num">金額（¥）</th><th></th></tr></thead>
+        <tbody id="expRows"></tbody>
+      </table>
+    </div>
+    <div class="lempty" id="expEmpty">還沒有帳目——先新增成員，再記下第一筆吧。</div>
+    <div class="sumtiles" id="sumTiles"></div>
+  </div>
+</section>
+
 <!-- ================= TIPS ================= -->
 <section id="tips">
   <p class="kicker">Notes from your guide</p>
@@ -616,6 +705,108 @@ footer p{margin:4px 0}
 </footer>
 
 <script>
+(function(){
+  var btn = document.getElementById('themeBtn');
+  function paint(){
+    var light = document.documentElement.dataset.theme === 'light';
+    btn.textContent = light ? '🌙 深色' : '☀️ 淺色';
+  }
+  btn.addEventListener('click', function(){
+    var next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    try{ localStorage.setItem('tokyo-theme', next); }catch(e){}
+    paint();
+  });
+  paint();
+})();
+
+(function(){
+  var KEY = 'tokyo-trip-ledger-v1', RATE = 0.21;
+  var state = {people:[], exp:[]};
+  try{ var raw = localStorage.getItem(KEY); if(raw){ state = JSON.parse(raw); } }catch(e){}
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+  var filter = 'all';
+  var $ = function(id){ return document.getElementById(id); };
+  var yen = function(n){ return '¥' + n.toLocaleString('ja-JP'); };
+
+  function esc(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function render(){
+    var chips = state.people.map(function(p){
+      return '<span class="pchip">' + esc(p) +
+        '<button type="button" class="x" data-del-person="' + esc(p) + '" aria-label="刪除成員 ' + esc(p) + '">✕</button></span>';
+    }).join('');
+    $('personChips').innerHTML = chips || '<span class="lempty" style="padding:0">尚無成員</span>';
+
+    $('expPerson').innerHTML = '<option value="" disabled ' + (state.people.length ? '' : 'selected') + '>誰買的？</option>' +
+      state.people.map(function(p){ return '<option>' + esc(p) + '</option>'; }).join('');
+
+    var fs = [['all','全部']].concat(state.people.map(function(p){ return [p, p]; }));
+    if(filter !== 'all' && state.people.indexOf(filter) < 0){ filter = 'all'; }
+    $('filterChips').innerHTML = fs.map(function(f){
+      return '<button type="button" class="fchip' + (filter === f[0] ? ' on' : '') + '" data-filter="' + esc(f[0]) + '">' + esc(f[1]) + '</button>';
+    }).join('');
+
+    var rows = state.exp.filter(function(e){ return filter === 'all' || e.p === filter; });
+    $('expRows').innerHTML = rows.map(function(e){
+      return '<tr><td><small>' + esc(e.d) + '</small></td><td>' + esc(e.p) + '</td><td>' + esc(e.i) +
+        '</td><td class="num">' + yen(e.a) + '</td>' +
+        '<td><button type="button" class="xbtn" data-del-exp="' + e.id + '" aria-label="刪除這筆">✕</button></td></tr>';
+    }).join('');
+    $('expEmpty').style.display = rows.length ? 'none' : 'block';
+
+    var totals = {}, grand = 0;
+    state.exp.forEach(function(e){ totals[e.p] = (totals[e.p] || 0) + e.a; grand += e.a; });
+    $('sumTiles').innerHTML = state.people.map(function(p){
+      var t = totals[p] || 0;
+      return '<div class="sumtile">' + esc(p) + '<b>' + yen(t) + '</b><small>≈ NT$' + Math.round(t * RATE).toLocaleString() + '</small></div>';
+    }).join('') + (grand ? '<div class="sumtile grand">三人合計<b>' + yen(grand) + '</b><small>≈ NT$' + Math.round(grand * RATE).toLocaleString() + '</small></div>' : '');
+  }
+
+  $('personForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var n = $('personName').value.trim();
+    if(!n){ return; }
+    if(state.people.indexOf(n) >= 0){ alert('「' + n + '」已經在名單裡了'); return; }
+    state.people.push(n); $('personName').value = '';
+    save(); render();
+  });
+
+  $('expForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var p = $('expPerson').value, i = $('expItem').value.trim(), a = Math.round(Number($('expAmt').value));
+    if(!p || !i || !(a > 0)){ return; }
+    var now = new Date();
+    state.exp.unshift({id: now.getTime() + '' + Math.floor(Math.random() * 1000), p: p, i: i, a: a,
+      d: (now.getMonth() + 1) + '/' + now.getDate()});
+    $('expItem').value = ''; $('expAmt').value = '';
+    save(); render();
+  });
+
+  document.getElementById('ledger').addEventListener('click', function(ev){
+    var t = ev.target;
+    if(t.dataset.filter){ filter = t.dataset.filter; render(); return; }
+    if(t.dataset.delExp){
+      state.exp = state.exp.filter(function(e){ return e.id !== t.dataset.delExp; });
+      save(); render(); return;
+    }
+    if(t.dataset.delPerson){
+      var p = t.dataset.delPerson;
+      var n = state.exp.filter(function(e){ return e.p === p; }).length;
+      if(!confirm('刪除成員「' + p + '」' + (n ? '和他的 ' + n + ' 筆帳目' : '') + '？')){ return; }
+      state.people = state.people.filter(function(x){ return x !== p; });
+      state.exp = state.exp.filter(function(e){ return e.p !== p; });
+      save(); render();
+    }
+  });
+
+  render();
+})();
+
 (function(){
   var links = document.querySelectorAll('.daynav a');
   var map = {};
