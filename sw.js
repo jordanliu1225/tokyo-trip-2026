@@ -1,4 +1,4 @@
-var CACHE = 'tokyo-trip-v1';
+var CACHE = 'tokyo-trip-v2';
 var ASSETS = ['./','./index.html','./map.html','./budget.html','./ledger.html','./tips.html','./apps.html',
   './style.css','./theme.js','./ledger.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install', function(e){
@@ -13,7 +13,8 @@ self.addEventListener('fetch', function(e){
   var req = e.request;
   if(req.method !== 'GET'){ return; }
   var url = new URL(req.url);
-  if(url.hostname === 'textdb.online'){ return; }              // 記帳同步永遠走網路
+  if(url.hostname === 'textdb.online'){ return; }
+  if(url.hostname.indexOf('open-meteo') >= 0){ return; } // 天氣永遠拿最新              // 記帳同步永遠走網路
   if(url.hostname.indexOf('tile.openstreetmap') >= 0){ return; } // 地圖磚不快取
   if(url.origin === location.origin){
     // 網路優先（拿最新行程），離線退回快取
