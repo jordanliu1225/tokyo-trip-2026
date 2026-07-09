@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>東京夏物語 7/30–8/4 行前計畫書</title>
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#131722">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <script>(function(){var t;try{t=localStorage.getItem("tokyo-theme")}catch(e){}document.documentElement.dataset.theme=t==="light"?"light":"dark";})();</script>
 </head>
 <body>
@@ -319,6 +325,30 @@
     });
   }, {rootMargin:'-30% 0px -60% 0px'});
   document.querySelectorAll('main section').forEach(function(s){ obs.observe(s); });
+})();
+</script>
+<script>
+(function(){
+  var days=['2026-7-30','2026-7-31','2026-8-1','2026-8-2','2026-8-3','2026-8-4'];
+  var parts;
+  try{ parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'numeric',day:'numeric',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date()); }catch(e){ return; }
+  function g(t){ var p=parts.find(function(x){return x.type===t}); return p?Number(p.value):0; }
+  var idx=days.indexOf(g('year')+'-'+g('month')+'-'+g('day'));
+  if(idx<0){ return; }
+  var sec=document.getElementById('d'+(idx+1)); if(!sec){ return; }
+  sec.classList.add('today');
+  var mins=(g('hour')%24)*60+g('minute'), cur=null;
+  sec.querySelectorAll('.tl > li').forEach(function(li){
+    var t=li.querySelector('.t'); if(!t){ return; }
+    var m=t.textContent.match(/(\d{1,2}):(\d{2})/); if(!m){ return; }
+    if(Number(m[1])*60+Number(m[2])<=mins){ cur=li; }
+  });
+  if(cur){
+    cur.classList.add('now-item');
+    var h=cur.querySelector('h3');
+    if(h){ var s=document.createElement('span'); s.className='nowtag'; s.textContent='◉ 現在'; h.appendChild(s); }
+  }
+  setTimeout(function(){ (cur||sec).scrollIntoView({block:'center'}); }, 150);
 })();
 </script>
 </body>

@@ -258,3 +258,31 @@ footer p{margin:4px 0}
   background:var(--surface2); font-weight:700;
 }
 .applinks a:hover{border-color:var(--shu); color:var(--shu)}
+
+/* ---------- mobile bottom nav ---------- */
+@media (max-width:720px){
+  nav.daynav{display:contents}
+  .daynav > .wrap:not(.dayrow){
+    position:fixed; left:0; right:0; bottom:0; z-index:70; margin:0; max-width:none;
+    background:var(--surface); border-top:1px solid var(--line);
+    padding:8px 10px calc(10px + env(safe-area-inset-bottom));
+    box-shadow:0 -4px 14px rgba(0,0,0,.18);
+    display:flex; gap:6px; overflow-x:auto;
+  }
+  .daynav .pagelink{padding:9px 12px; font-size:13.5px}
+  .thbtn{padding:9px 12px; margin-left:auto}
+  body{padding-bottom:84px}
+  footer{padding-bottom:20px}
+  .daynav .dayrow{
+    position:sticky; top:0; z-index:60; margin:0; max-width:none;
+    background:var(--bg); border-bottom:1px solid var(--line); padding:10px;
+  }
+  .pin{display:inline-block; padding:4px 6px; margin:-4px 0}
+}
+
+/* ---------- today mode ---------- */
+section.today > .kicker::after{content:"・今天"; color:var(--shu)}
+.tl > li.now-item::before{border-color:var(--gold)}
+.now-item .stop{border-color:var(--gold); box-shadow:0 0 0 2px var(--gold-soft)}
+.now-item .leg{box-shadow:0 0 0 2px var(--gold-soft)}
+.nowtag{color:var(--gold); font-size:12px; font-weight:700; letter-spacing:.15em; margin-left:8px; white-space:nowrap}
