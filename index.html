@@ -48,8 +48,6 @@
   <div class="wrap dayrow"><a href="#d1">7/30<span>抵達</span></a><a href="#d2">7/31<span>淺草在地日</span></a><a href="#d3">8/1<span>阿美橫・花火</span></a><a href="#d4">8/2<span>神宮・澀谷</span></a><a href="#d5">8/3<span>築地・銀座</span></a><a href="#d6">8/4<span>採買・回程</span></a></div>
 </nav>
 
-<div class="wrap"><div class="wxbar" id="wxbar" hidden></div></div>
-
 <main class="wrap">
 
 <section id="d1">
@@ -351,28 +349,6 @@
     if(h){ var s=document.createElement('span'); s.className='nowtag'; s.textContent='◉ 現在'; h.appendChild(s); }
   }
   setTimeout(function(){ (cur||sec).scrollIntoView({block:'center'}); }, 150);
-})();
-</script>
-<script>
-(function(){
-  var el=document.getElementById('wxbar'); if(!el){ return; }
-  var KEY='tokyo-wx';
-  function icon(c){ if(c===0){return'☀️';} if(c<=2){return'🌤';} if(c===3){return'☁️';} if(c<=48){return'🌫';} if(c<=57){return'🌦';} if(c<=67){return'🌧';} if(c<=77){return'🌨';} if(c<=82){return'🌧';} return'⛈';}
-  function render(d, stale){
-    var c=d.current, dy=d.daily;
-    el.innerHTML='<b>'+icon(c.weather_code)+' 東京現在 '+Math.round(c.temperature_2m)+'°C</b>'
-      +'<span>體感 '+Math.round(c.apparent_temperature)+'°</span>'
-      +'<span>今日 '+Math.round(dy.temperature_2m_min[0])+'–'+Math.round(dy.temperature_2m_max[0])+'°</span>'
-      +'<span>降雨機率 '+dy.precipitation_probability_max[0]+'%</span>'
-      +(stale?'<span class="wx-stale">離線資料</span>':'');
-    el.hidden=false;
-  }
-  var cached=null;
-  try{ cached=JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){}
-  fetch('https://api.open-meteo.com/v1/forecast?latitude=35.72&longitude=139.79&current=temperature_2m,apparent_temperature,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=1')
-    .then(function(r){ return r.json(); })
-    .then(function(d){ render(d,false); try{ localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} })
-    .catch(function(){ if(cached){ render(cached,true); } });
 })();
 </script>
 </body>

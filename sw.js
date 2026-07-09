@@ -1,4 +1,4 @@
-var CACHE = 'tokyo-trip-v2';
+var CACHE = 'tokyo-trip-v3';
 var ASSETS = ['./','./index.html','./map.html','./budget.html','./ledger.html','./tips.html','./apps.html',
   './style.css','./theme.js','./ledger.js','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install', function(e){

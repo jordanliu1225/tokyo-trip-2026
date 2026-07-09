@@ -296,3 +296,24 @@ section.today > .kicker::after{content:"・今天"; color:var(--shu)}
 .wxbar b{font-size:14.5px}
 .wxbar span{color:var(--muted)}
 .wx-stale{color:var(--gold); font-weight:700}
+
+
+/* ---------- weather ticker (fixed top marquee) ---------- */
+:root{--tickerh: calc(32px + env(safe-area-inset-top, 0px))}
+.wxticker{
+  position:fixed; top:0; left:0; right:0; z-index:90;
+  height:var(--tickerh); padding-top:env(safe-area-inset-top, 0px);
+  display:flex; align-items:center; overflow:hidden;
+  background:var(--surface2); color:var(--ink);
+  border-bottom:1px solid var(--line); font-size:13px;
+}
+.wx-track{display:inline-flex; white-space:nowrap; animation:wxscroll 26s linear infinite; will-change:transform}
+.wx-track > span{flex:none; padding-right:64px}
+.wx-track b{color:var(--shu)}
+@keyframes wxscroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){ .wx-track{animation:none} }
+body{padding-top:var(--tickerh)}
+nav.daynav{top:var(--tickerh)}
+@media (max-width:720px){
+  .daynav .dayrow{top:var(--tickerh)}
+}
